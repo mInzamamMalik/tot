@@ -1,0 +1,21 @@
+{
+  "name": "TOT",
+  "authors": [
+    "malikasinger1@gmail.com <malikasinger1@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.0.7"
+  }
+}
