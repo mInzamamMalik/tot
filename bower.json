@@ -17,6 +17,6 @@
   ],
   "dependencies": {
     "angular-material": "^1.0.7",
-    "ngDraggable": "^0.1.8"
+    "angular-sortable-view": "^0.0.15"
   }
 }
