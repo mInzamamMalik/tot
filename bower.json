@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular-material": "^1.0.7"
+    "angular-material": "^1.0.7",
+    "ngDraggable": "^0.1.8"
   }
 }

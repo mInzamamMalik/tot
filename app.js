@@ -1,4 +1,4 @@
-angular.module("myApp", ["ngMaterial"])
+angular.module("myApp", ["ngMaterial","ngDraggable"])
 
 .controller("appController",[ "$scope" ,  appController ]);
 
