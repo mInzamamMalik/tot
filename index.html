@@ -21,67 +21,37 @@
 
 
 
+<div>
+    <h3>back end view</h3>
+    <span ng-repeat="item in project"> {{item | json}} <br> </span>
+</div>
 
 <md-content sv-root class="md-padding" layout-xs="column" layout="row">
 
     <!--/////////////todo items/////////////////////////////////////////////////////////-->
-    <div sv-part="modelArray1" flex-xs flex-gt-xs="25" layout="column" >
+    <div sv-part="value" ng-repeat="(key , value) in project" flex-xs flex-gt-xs="25" layout="column" >
         <md-card>
+
+
+
             <md-toolbar class="md-theme-light">
-                <h1 class="md-toolbar-tools" ng-bind="key">{{item}}</h1>
+                <h1 class="md-toolbar-tools" ng-bind="key"></h1>
             </md-toolbar>
 
-            <md-card ng-repeat="item in modelArray1" sv-element>
+            <md-card ng-repeat="item in value" sv-element>
                 <md-card-title>
                     this is task {{item}} title
                 </md-card-title>
 
-                <md-card-actions layout="row" layout-align="end center">
-                    <button class="md-button md-primary ">button </button>
-
-                </md-card-actions>
-            </md-card>
-
-            <md-card ng-hide=" true"sv-element>
-                <md-card-title>
-                    this is task {{item}} title
-                </md-card-title>
 
                 <md-card-actions layout="row" layout-align="end center">
                     <button class="md-button md-primary ">button </button>
-
                 </md-card-actions>
             </md-card>
 
         </md-card>
     </div>
     <!--/////////////todo items/////////////////////////////////////////////////////////-->
-
-
-    <!--/////////////doing items/////////////////////////////////////////////////////////-->
-    <div sv-part="modelArray2" flex-xs flex-gt-xs="25" layout="column" >
-        <md-card>
-            <md-toolbar class="md-theme-light">
-                <h1 class="md-toolbar-tools" ng-bind="key">{{item}}</h1>
-            </md-toolbar>
-
-
-            <md-card ng-repeat="item in modelArray2" sv-element>
-                <md-card-title>
-                    this is task {{item}} title
-                </md-card-title>
-
-                <md-card-actions layout="row" layout-align="end center">
-                    <button class="md-button md-primary ">button </button>
-
-                </md-card-actions>
-            </md-card>
-
-
-        </md-card>
-    </div>
-    <!--/////////////doing items/////////////////////////////////////////////////////////-->
-
 
 </md-content>
 
