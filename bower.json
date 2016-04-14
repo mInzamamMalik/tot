@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "angular-material": "^1.0.7",
-    "angular-sortable-view": "^0.0.15"
+    "angular-sortable-view": "^0.0.15",
+    "angular-material-icons": "^0.7.0"
   }
 }

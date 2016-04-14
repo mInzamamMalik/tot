@@ -12,13 +12,13 @@
 <script src="libs/angular-aria/angular-aria.js"></script>
 <script src="libs/angular-messages/angular-messages.js"></script>
 <script src="libs/angular-material/angular-material.js"></script>
+<script src="libs/angular-material-icons/angular-material-icons.js"></script>
 
 <script src="libs/angular-sortable-view/src/angular-sortable-view.js"></script>
 
 <script src="app.js"></script>
 
 <body ng-app="myApp" ng-controller="appController" class="disable-text-selection">
-
 
 
 <div>
@@ -28,25 +28,33 @@
 
 <md-content sv-root class="md-padding" layout-xs="column" layout="row">
 
-    <div  sv-part="value" ng-repeat="(key , value) in project" flex-xs flex-gt-xs="25" layout="column" >
+    <div sv-part="value" ng-repeat="(key , value) in project" flex-xs flex-gt-xs="25" layout="column">
         <md-card>
 
             <md-toolbar class="md-theme-light">
-                <h1 class="md-toolbar-tools" ng-bind="key"></h1>
+                <div class="md-toolbar-tools">
+                    <h2>
+                        <span ng-bind="key"></span>
+                    </h2>
+                    <span flex></span>
+                    <md-button ng-show="key=='Todo'" class="md-icon-button" aria-label="Favorite">
+                        <ng-md-icon icon="add_circle" style="fill: white " size="30"></ng-md-icon>
+                    </md-button>
+                </div>
             </md-toolbar>
 
             <md-card ng-repeat="item in value" sv-element>
                 <md-card-title>
-                    this is task number {{item}}
+                    {{item}}
                 </md-card-title>
 
                 <md-card-actions layout="row" layout-align="end center">
-                    <button class="md-button md-primary ">Action </button>
+                    <button class="md-button md-primary" ng-click="">Delete</button>
                 </md-card-actions>
             </md-card>
 
             <!--////////no item////////////////////-->
-            <md-card  ng-show="!value.length">
+            <md-card ng-show="!value.length">
                 <md-card-header>
                     <md-card-header-text>
                         <span class="md-subhead">No Item</span>
@@ -55,11 +63,18 @@
             </md-card>
             <!--////////no item////////////////////-->
 
+            <form ng-if="key=='Todo'" ng-submit="project.Todo.push(newTask); newTask=''">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Add a new Task</label>
+                    <input md-maxlength="150" required ng-model="newTask"/>
+                </md-input-container>
+            </form>
+
         </md-card>
+
+
     </div>
-
 </md-content>
-
 
 
 </body>

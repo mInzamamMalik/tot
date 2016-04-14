@@ -1,18 +1,17 @@
-angular.module("myApp", ["ngMaterial","angular-sortable-view"])
+angular.module("myApp", ["ngMaterial","angular-sortable-view","ngMdIcons"])
 
-.controller("appController",[ "$scope" ,  appController ]);
+.controller("appController",[ "$scope", "$mdDialog",  appController ]);
 
 
-function appController($scope){
+function appController($scope,$mdDialog){
 
 
     $scope.project = {
 
-        Todo :["1.0", "2.5", "3.0", "4.1"],
-        Doing : ["6.0", "7.5", "8.4", "9.1"],
-        Review : [],
-        Done : []
-
+        Todo :["chiken tikka","tandoori chargha","malai boti"],
+        Doing : [],
+        Review : [  "nihaari","chicken karahi" , "ui design"],
+        Done : [ ]
     };
 
 }
