@@ -15,6 +15,8 @@
 <script src="libs/angular-material-icons/angular-material-icons.js"></script>
 
 <script src="libs/angular-sortable-view/src/angular-sortable-view.js"></script>
+<script src="libs/firebase/firebase.js"></script>
+
 
 <script src="app.js"></script>
 
@@ -63,7 +65,7 @@
             </md-card>
             <!--////////no item////////////////////-->
 
-            <form ng-if="key=='Todo'" ng-submit="project.Todo.push(newTask); newTask=''">
+            <form ng-if="key=='Todo'" ng-submit="addNewTask(newTask)">
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Add a new Task</label>
                     <input md-maxlength="150" required ng-model="newTask"/>
