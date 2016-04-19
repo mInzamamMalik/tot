@@ -16,6 +16,7 @@
 
 <script src="libs/angular-sortable-view/src/angular-sortable-view.js"></script>
 <script src="libs/firebase/firebase.js"></script>
+<script src="libs/angularfire/dist/angularfire.js"></script>
 
 
 <script src="app.js"></script>
@@ -46,12 +47,13 @@
             </md-toolbar>
 
             <md-card ng-repeat="item in value" sv-element>
-                <md-card-title>
-                    {{item}}
+                <md-card-title >
+                    <!--<button class="md-button md-primary" sv-handle>move</button>-->
+                    {{item.value}}
                 </md-card-title>
 
                 <md-card-actions layout="row" layout-align="end center">
-                    <button class="md-button md-primary" ng-click="">Delete</button>
+                    <button  class="md-button md-primary md-raised" ng-click="delete(item.key)" >Delete</button>
                 </md-card-actions>
             </md-card>
 
