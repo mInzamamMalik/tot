@@ -14,6 +14,10 @@ function app($scope){
 
     var ref = new Firebase("https://teamofteam.firebaseio.com/projects");
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //when a data is added
     ref.child("projectId1234").child("Todo").on("child_added",function(snap){
         //console.log(snap.key(), snap.val());
@@ -100,6 +104,8 @@ function app($scope){
 
         }, true // Object equality (not just reference).
     );
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //
     //ref.child("projectId1234").child("Doing").on("child_added",function(val){
@@ -116,7 +122,7 @@ function app($scope){
     //});
 
 
-     //add a task to firebase "not to local array"
+    //add a task to firebase "not to local array"
      $scope.addNewTask = function(newTask){
         ref.child("projectId1234").child("Todo").push(newTask);
         $scope.newTask = "";
