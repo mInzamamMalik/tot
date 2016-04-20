@@ -17,12 +17,28 @@ function app($scope){
     //when a data is added
     ref.child("projectId1234").child("Todo").on("child_added",function(snap){
         //console.log(snap.key(), snap.val());
-        var temp = {};
-        temp.key = snap.key();
-        temp.value = snap.val();
+        var notFound = true;
 
-        $scope.project.Todo.push(temp);
-        $scope.$apply();
+        for(i=0; i<$scope.project.Todo.length; i++){ // checking if the the comming element is already not exist in local array
+            if($scope.project.Todo[i].key == snap.key()){
+
+                if($scope.project.Todo[i].value != snap.val()){
+                    $scope.project.Todo[i].value = snap.val();
+                }
+                notFound = false;
+                return;
+
+            }
+        }
+
+        if(notFound){
+            var temp = {};
+            temp.key = snap.key();
+            temp.value = snap.val();
+
+            $scope.project.Todo.push(temp);
+            $scope.$apply();
+        }
     });
 
     //when a data is removed
@@ -40,25 +56,46 @@ function app($scope){
 
     //when removed an item form local list any source or library
     $scope.$watch("project.Todo", function (newValue, oldValue) {
+        console.log("this is executed",newValue,oldValue);
 
-        if(!oldValue.length){ // it means array is already empty
-            //alert(oldValue.length);
-            //return;
-        }else if(!newValue.length){ // it means array mai aik he element tha or ab array empty ho chuka ahi
+        if(newValue.length < oldValue.length){ //if an item is removed from array
 
-            $scope.delete(oldValue[0].key); // also delete from firebase
+                    if(!oldValue.length){ // it means array is already empty
+                        //alert(oldValue.length);
+                        //return;
+                    }else if(!newValue.length){ // it means array mai aik he element tha or ab array empty ho chuka ahi
 
-        }else if(newValue.length < oldValue.length){ // an index is deleted from this list
-            for(i=0; i< oldValue.length; i++){
+                        console.log( oldValue[0]," is deleted");
+                        $scope.delete(oldValue[0].key); // also delete from firebase
 
-                if(newValue[i].key !=  oldValue[i].key){
-                    console.log( oldValue[i]," is deleted");
-                    $scope.delete(oldValue[i].key); // also delete from firebase
-                    break;
+                    }else if(newValue.length < oldValue.length){ // an index is deleted from this list
+                        for(i=0; i< oldValue.length; i++){
+
+                            if(newValue[i].key !=  oldValue[i].key){
+                                console.log( oldValue[i]," is deleted");
+                                $scope.delete(oldValue[i].key); // also delete from firebase
+                                break;
+                            }
+                        }
+                    }
+
+        }else if( oldValue.length < newValue.length ){
+
+            if(!oldValue.length){ // it means array was empty but now a value is added
+                $scope.add(newValue[0]);
+            }else{
+
+                for(i=0; i< newValue.length; i++){
+
+                    if(newValue[i].key !=  oldValue[i].key){
+                        console.log( newValue[i]," is added");
+                        $scope.add(newValue[i]); // also add to firebase
+                        break;
+                    }
                 }
+
             }
         }
-
 
 
         }, true // Object equality (not just reference).
@@ -81,8 +118,14 @@ function app($scope){
 
      //add a task to firebase "not to local array"
      $scope.addNewTask = function(newTask){
-
         ref.child("projectId1234").child("Todo").push(newTask);
+        $scope.newTask = "";
+     };
+
+    $scope.add = function(newTaskObject){
+
+        console.log(newTaskObject);
+        ref.child("projectId1234").child("Todo").child(newTaskObject.key).set(newTaskObject.value);
         $scope.newTask = "";
      };
 
