@@ -53,7 +53,7 @@
                 </md-card-title>
 
                 <md-card-actions layout="row" layout-align="end center">
-                    <button  class="md-button md-primary md-raised" ng-click="delete(item.key)" >Delete</button>
+                    <button  class="md-button md-primary md-raised" ng-click="delete(item.key, key )" >Delete</button>
                 </md-card-actions>
             </md-card>
 
@@ -67,7 +67,7 @@
             </md-card>
             <!--////////no item////////////////////-->
 
-            <form ng-if="key=='Todo'" ng-submit="addNewTask(newTask)">
+            <form ng-if="key=='Todo'" ng-submit="addNewTask(newTask,'Todo')">
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Add a new Task</label>
                     <input md-maxlength="150" required ng-model="newTask"/>
