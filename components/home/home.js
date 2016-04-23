@@ -10,8 +10,8 @@ app.controller("homeController", ["$scope", homeController]);
 
 function homeController($scope) {
 
-    var ref = new Firebase("https://teamofteam.firebaseio.com/projects");
-    var projectRef = ref.child("project");
+    var ref = new Firebase("https://teamofteam.firebaseio.com");
+    var projectRef = ref.child("projects");
 
 
     $scope.project = {
@@ -404,5 +404,10 @@ function homeController($scope) {
     $scope.delete = function (key, state) {
         projectRef.child("projectId1234").child(state).child(key).set(null);
     };
+
+
+    $scope.logout = function(){
+        ref.unauth();
+    }
 
 }

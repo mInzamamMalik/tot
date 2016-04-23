@@ -1,2 +1,66 @@
-<h1>this is login {{userName}}</h1>
 
+<form ng-submit="login(login)" ng-show="showLogin">
+    <div layout-gt-sm="row">
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Email</label>
+            <input required type="email" name="clientEmail" ng-model="login.email"
+                   minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
+
+            <div ng-messages="projectForm.clientEmail.$error" role="alert">
+                <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                    Your email must be look like an e-mail address and between 10 and 100 characters long.
+                </div>
+            </div>
+        </md-input-container>
+
+        <div flex="5" hide-xs hide-sm>
+            <!-- Spacer //-->
+        </div>
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Password</label>
+            <input name="social" ng-model="login.password"/>
+        </md-input-container>
+
+        <div flex="5" hide-xs hide-sm>
+            <!-- Spacer //-->
+        </div>
+    </div>
+    <button flex="10" class="md-button md-primary md-raised" type="submit">Login</button>
+    <button ng-click="showLogin = false" class="md-button md-primary">Dont Have an Account?</button>
+
+</form>
+
+<form ng-submit="signup(signup)" ng-hide="showLogin">
+    <div layout-gt-sm="row">
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Email</label>
+            <input required type="email" name="clientEmail" ng-model="signup.email"
+                   minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
+
+            <div ng-messages="projectForm.clientEmail.$error" role="alert">
+                <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                    Your email must be look like an e-mail address and between 10 and 100 characters long.
+                </div>
+            </div>
+        </md-input-container>
+
+        <div flex="5" hide-xs hide-sm>
+            <!-- Spacer //-->
+        </div>
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Password</label>
+            <input name="social" ng-model="signup.password"/>
+        </md-input-container>
+
+        <div flex="5" hide-xs hide-sm>
+            <!-- Spacer //-->
+        </div>
+
+    </div>
+    <button flex="10" class="md-button md-primary md-raised" type="submit">SignUp</button>
+    <button ng-click="showLogin = true" class="md-button md-primary">Already Signed Up?</button>
+</form>
