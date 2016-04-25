@@ -1,9 +1,11 @@
 angular.module("myApp", ["ngMaterial", "angular-sortable-view", "ui.router", "login", "home"])
 
-    .controller("appController", ["$scope","mainService", appController])
+    .controller("appController", ["$scope","$state", appController])
+
+
     .config(function ($urlRouterProvider, $stateProvider) {
 
-        $urlRouterProvider.otherwise("/home");
+
         $stateProvider.state("login", {
             url: "/login",
             templateUrl: "components/login/login.html",
@@ -14,10 +16,11 @@ angular.module("myApp", ["ngMaterial", "angular-sortable-view", "ui.router", "lo
             templateUrl: "components/home/home.html",
             controller: "homeController"
         });
+        $urlRouterProvider.otherwise("/home");
 
     });
 
-function appController() {
+function appController($scope,$state) {
 
 
 }

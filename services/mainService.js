@@ -12,7 +12,7 @@ var app = angular.module("myApp")
 
     function authDataCallback(authData) {
         if (authData) {
-            console.log("User " + authData.uid + " is logged in with " + authData);
+            console.log("User " + authData.uid + " is logged in with " + authData.provider);
             $state.go("home");
         } else {
             console.log("User is logged out");

@@ -3,14 +3,17 @@
  */
 
 
-var app = angular.module("home",[]);
+var app = angular.module("home", []);
 
-app.controller("homeController", ["$scope", homeController]);
+app.controller("homeController", ["$scope", "$state", "mainService", homeController]);
 
 
-function homeController($scope) {
+function homeController($scope, $state, mainService) {
 
     var ref = new Firebase("https://teamofteam.firebaseio.com");
+
+    $scope.userName = ref.getAuth();
+
     var projectRef = ref.child("projects");
 
 

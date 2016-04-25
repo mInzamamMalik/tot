@@ -4,7 +4,7 @@
 
 var app = angular.module("login",[]);
 
-app.controller("loginController",function($scope,$state){
+app.controller("loginController",function($scope){
 
     var ref = new Firebase("https://teamofteam.firebaseio.com");
 
