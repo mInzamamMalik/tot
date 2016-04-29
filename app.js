@@ -1,7 +1,14 @@
 angular.module("myApp", ["ngMaterial", "angular-sortable-view", "ui.router", "login", "home"])
 
-    .controller("appController", ["$scope","$state", appController])
+    .controller("appController", ["$scope", appController])
 
+    .factory('$exceptionHandler', function() {
+        return function(exception, cause) {
+            exception.message += ' (caused by "' + cause + '")';
+            //console.log(cause);
+            //throw exception;
+        };
+    })
 
     .config(function ($urlRouterProvider, $stateProvider) {
 
@@ -20,7 +27,9 @@ angular.module("myApp", ["ngMaterial", "angular-sortable-view", "ui.router", "lo
 
     });
 
-function appController($scope,$state) {
+function appController($scope) {
 
 
 }
+
+
