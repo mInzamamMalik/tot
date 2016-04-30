@@ -31,7 +31,9 @@
             <md-card ng-repeat="item in value" sv-element>
                 <md-card-title >
                     <!--<button class="md-button md-primary" sv-handle>move</button>-->
-                    {{item.value}}
+                    {{item.value.title}}<br/>
+                    {{item.value.detail}}<br/>
+                    {{item.value.other}}<br/>
                 </md-card-title>
 
                 <md-card-actions layout="row" layout-align="end center">
@@ -51,9 +53,19 @@
 
             <form ng-if="key=='Todo'" ng-submit="addNewTask(newTask,'Todo')">
                 <md-input-container class="md-block" flex-gt-sm>
-                    <label>Add a new Task</label>
-                    <input md-maxlength="150" required ng-model="newTask"/>
+                    <label>Title</label>
+                    <input md-maxlength="50" required ng-model="newTask.title"/>
                 </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Detail</label>
+                    <input md-maxlength="150" required ng-model="newTask.detail"/>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>other</label>
+                    <input md-maxlength="150" required ng-model="newTask.other"/>
+                </md-input-container>
+                <button>subbmit</button>
+
             </form>
 
         </md-card>
