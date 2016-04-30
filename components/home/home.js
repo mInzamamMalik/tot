@@ -76,7 +76,6 @@ function homeController($scope, $state, mainService) {
     //when removed an item form local list any source or library
     $scope.$watch("project.Todo", function (newValue, oldValue) {
 
-
                 //////////////////////////////////////////////////////////////////////////////////////////////////////
                 if (typeof newValue == "undefined" && typeof oldValue != "undefined") { // it means array mai aik he element tha or ab array empty ho chuka ahi
 
@@ -98,12 +97,13 @@ function homeController($scope, $state, mainService) {
                 }else
 
                 ///////////////////////////////////////////////////////////////////////////////////////////
-                if (typeof oldValue == "undefined" && typeof newValue != "undefined") { // it means array was empty but now a value is added
+                if (oldValue.length == 0 && newValue.length != 0) { // it means array was empty but now a value is added
+                    console.log("yes");
                     $scope.add(newValue[0], "Todo");
 
-                } else if( oldValue.length < newValue.length) {
+                } else if( oldValue.length < newValue.length) { // an index is added in this list
 
-                    notFound = true;
+                   notFound = true;
                     for (i = 0; i < oldValue.length; i++) {
 
                         if (newValue[i].key != oldValue[i].key) {
@@ -112,7 +112,7 @@ function homeController($scope, $state, mainService) {
                             break;
                         }
                     }
-                    if(notfound) $scope.add(newValue[newValue.length-1], "Todo");
+                    if(notFound) $scope.add(newValue[newValue.length-1], "Todo");
                 }
                 ///////////////////////////////////////////////////////////////////////////////////////////////
 
