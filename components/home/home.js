@@ -25,15 +25,16 @@ function homeController($scope, $state, mainService) {
     };
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    var arg = "Todo";
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //when a data is added
-    projectRef.child("Todo").on("child_added", function (snap) {
+    projectRef.child(arg).on("child_added", function (snap) {
 
         var notFound = true;
-        for (i = 0; i < $scope.project.Todo.length; i++) { // checking if the the comming element is already not exist in local array
-            if ($scope.project.Todo[i].key == snap.key()) {
+        for (i = 0; i < $scope.project[arg].length; i++) { // checking if the the comming element is already not exist in local array
+            if ($scope.project[arg][i].key == snap.key()) {
                 notFound = false;
                 break;
             }
@@ -43,18 +44,18 @@ function homeController($scope, $state, mainService) {
                 key: snap.key(),
                 value: snap.val()
             };
-            $scope.project.Todo.push(temp);
+            $scope.project[arg].push(temp);
             $scope.$apply();
         }
     });
 
     //when a data is changed
-    projectRef.child("Todo").on("child_changed", function (snap) {
+    projectRef.child(arg).on("child_changed", function (snap) {
 
-        for (i = 0; i < $scope.project.Todo.length; i++) { // checking if the the comming element is already not exist in local array
-            if ($scope.project.Todo[i].key == snap.key()) {
+        for (i = 0; i < $scope.project[arg].length; i++) { // checking if the the comming element is already not exist in local array
+            if ($scope.project[arg][i].key == snap.key()) {
 
-                $scope.project.Todo[i].value = snap.val();
+                $scope.project[arg][i].value = snap.val();
                 $scope.$apply();
                 break;
             }
@@ -62,7 +63,7 @@ function homeController($scope, $state, mainService) {
     });
 
     //when a data is removed
-    projectRef.child("Todo").on("child_removed", function (snap) {
+    projectRef.child(arg).on("child_removed", function (snap) {
 
         for (i = 0; i < $scope.project.Todo.length; i++) {
             if ($scope.project.Todo[i].key == snap.key()) {
@@ -74,47 +75,9 @@ function homeController($scope, $state, mainService) {
     });
 
     //when removed an item form local list any source or library
-    $scope.$watch("project.Todo", function (newValue, oldValue) {
+    $scope.$watch("project." + arg, function (newValue, oldValue) {
 
-                //////////////////////////////////////////////////////////////////////////////////////////////////////
-                if (typeof newValue == "undefined" && typeof oldValue != "undefined") { // it means array mai aik he element tha or ab array empty ho chuka ahi
-
-                    $scope.delete(oldValue[0].key, "Todo"); // also delete from firebase
-
-                } else if (newValue.length < oldValue.length) { // an index is deleted from this list
-
-                    var notFound = true;
-                    for (i = 0; i < newValue.length; i++) {
-
-                        if (newValue[i].key != oldValue[i].key) {
-
-                            $scope.delete(oldValue[i].key, "Todo"); // also delete from firebase
-                            notFound = false;
-                            break;
-                        }
-                    }
-                    if (notFound) $scope.delete(oldValue[oldValue.length - 1].key, "Todo");
-                }else
-
-                ///////////////////////////////////////////////////////////////////////////////////////////
-                if (oldValue.length == 0 && newValue.length != 0) { // it means array was empty but now a value is added
-                    console.log("yes");
-                    $scope.add(newValue[0], "Todo");
-
-                } else if( oldValue.length < newValue.length) { // an index is added in this list
-
-                   notFound = true;
-                    for (i = 0; i < oldValue.length; i++) {
-
-                        if (newValue[i].key != oldValue[i].key) {
-                            $scope.add(newValue[i], "Todo"); // also add to firebase
-                            notFound = false;
-                            break;
-                        }
-                    }
-                    if(notFound) $scope.add(newValue[newValue.length-1], "Todo");
-                }
-                ///////////////////////////////////////////////////////////////////////////////////////////////
+            $scope.sense(newValue, oldValue, arg)
 
         }, true // Object equality (not just projectReference).
     );
@@ -122,16 +85,22 @@ function homeController($scope, $state, mainService) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+
+
+
+
+
     //add a task to firebase "not to local array"
     $scope.addNewTask = function (newTask) {
         projectRef.child("Todo").push(newTask);
-        $scope.newTask = "";
+        $scope.newTask = {};
     };
 
+    //add a task to firebase "not to local array"
     $scope.add = function (newTaskObject, state) {
 
         projectRef.child(state).child(newTaskObject.key).set(newTaskObject.value);
-        $scope.newTask = "";
+        $scope.newTask = {};
     };
 
     //remove a task from firebase "not from local array"
@@ -141,6 +110,49 @@ function homeController($scope, $state, mainService) {
 
     $scope.logout = function () {
         ref.unauth();
+    };
+
+
+    $scope.sense = function (newValue, oldValue, state) {
+        console.log("yes");
+        //////////////////////////////////////////////////////////////////////////////////////////////////////
+        if (typeof newValue == "undefined" && typeof oldValue != "undefined") { // it means array mai aik he element tha or ab array empty ho chuka ahi
+
+            $scope.delete(oldValue[0].key, state); // also delete from firebase
+
+        } else if (newValue.length < oldValue.length) { // an index is deleted from this list
+
+            var notFound = true;
+            for (i = 0; i < newValue.length; i++) {
+
+                if (newValue[i].key != oldValue[i].key) {
+
+                    $scope.delete(oldValue[i].key, state); // also delete from firebase
+                    notFound = false;
+                    break;
+                }
+            }
+            if (notFound) $scope.delete(oldValue[oldValue.length - 1].key, state);
+        } else
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        if (oldValue.length == 0 && newValue.length != 0) { // it means array was empty but now a value is added
+            $scope.add(newValue[0], state);
+
+        } else if (oldValue.length < newValue.length) { // an index is added in this list
+
+            notFound = true;
+            for (i = 0; i < oldValue.length; i++) {
+
+                if (newValue[i].key != oldValue[i].key) {
+                    $scope.add(newValue[i], state); // also add to firebase
+                    notFound = false;
+                    break;
+                }
+            }
+            if (notFound) $scope.add(newValue[newValue.length - 1], state);
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////
     }
+
 
 }
