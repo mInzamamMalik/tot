@@ -24,65 +24,10 @@ function homeController($scope, $state, mainService) {
         Done: []
     };
 
-
-    var arg = "Todo";
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //when a data is added
-    projectRef.child(arg).on("child_added", function (snap) {
-
-        var notFound = true;
-        for (i = 0; i < $scope.project[arg].length; i++) { // checking if the the comming element is already not exist in local array
-            if ($scope.project[arg][i].key == snap.key()) {
-                notFound = false;
-                break;
-            }
-        }
-        if (notFound) {
-            var temp = {
-                key: snap.key(),
-                value: snap.val()
-            };
-            $scope.project[arg].push(temp);
-            $scope.$apply();
-        }
-    });
-
-    //when a data is changed
-    projectRef.child(arg).on("child_changed", function (snap) {
-
-        for (i = 0; i < $scope.project[arg].length; i++) { // checking if the the comming element is already not exist in local array
-            if ($scope.project[arg][i].key == snap.key()) {
-
-                $scope.project[arg][i].value = snap.val();
-                $scope.$apply();
-                break;
-            }
-        }
-    });
-
-    //when a data is removed
-    projectRef.child(arg).on("child_removed", function (snap) {
-
-        for (i = 0; i < $scope.project.Todo.length; i++) {
-            if ($scope.project.Todo[i].key == snap.key()) {
-                $scope.project.Todo.splice(i, 1);
-                $scope.$apply();
-                break;
-            }
-        }
-    });
-
-    //when removed an item form local list any source or library
-    $scope.$watch("project." + arg, function (newValue, oldValue) {
-
-            $scope.sense(newValue, oldValue, arg)
-
-        }, true // Object equality (not just projectReference).
-    );
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+mainLogic("Todo");
+mainLogic("Doing");
+mainLogic("Review");
+mainLogic("Done");
 
 
 
@@ -152,7 +97,66 @@ function homeController($scope, $state, mainService) {
             if (notFound) $scope.add(newValue[newValue.length - 1], state);
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////
-    }
+    };
 
+
+    function mainLogic(arg) {
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //when a data is added
+        projectRef.child(arg).on("child_added", function (snap) {
+
+            var notFound = true;
+            for (i = 0; i < $scope.project[arg].length; i++) { // checking if the the comming element is already not exist in local array
+                if ($scope.project[arg][i].key == snap.key()) {
+                    notFound = false;
+                    break;
+                }
+            }
+            if (notFound) {
+                var temp = {
+                    key: snap.key(),
+                    value: snap.val()
+                };
+                $scope.project[arg].push(temp);
+                $scope.$apply();
+            }
+        });
+
+        //when a data is changed
+        projectRef.child(arg).on("child_changed", function (snap) {
+
+            for (i = 0; i < $scope.project[arg].length; i++) { // checking if the the comming element is already not exist in local array
+                if ($scope.project[arg][i].key == snap.key()) {
+
+                    $scope.project[arg][i].value = snap.val();
+                    $scope.$apply();
+                    break;
+                }
+            }
+        });
+
+        //when a data is removed
+        projectRef.child(arg).on("child_removed", function (snap) {
+
+            for (i = 0; i < $scope.project[arg].length; i++) {
+                if ($scope.project[arg][i].key == snap.key()) {
+                    $scope.project[arg].splice(i, 1);
+                    $scope.$apply();
+                    break;
+                }
+            }
+        });
+
+        //when removed an item form local list any source or library
+        $scope.$watch("project." + arg, function (newValue, oldValue) {
+
+                $scope.sense(newValue, oldValue, arg)
+
+            }, true // Object equality (not just projectReference).
+        );
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    };
 
 }
