@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "projects": {
+      "projectId1234": {
+        "$userId": {
+          ".read": "true",
+          ".write": "true"
+        }
+      }
+    }
+  }
+}

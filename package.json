@@ -1,0 +1,21 @@
+{
+  "name": "tot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "firebase-bolt < security-rules/security-rules.bolt > security-rules/security-rules.json && firebase deploy "
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malikasinger1/TOT.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/malikasinger1/TOT/issues"
+  },
+  "homepage": "https://github.com/malikasinger1/TOT#readme"
+}
