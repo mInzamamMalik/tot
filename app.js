@@ -1,4 +1,4 @@
-angular.module("myApp", ["ngMaterial", "angular-sortable-view", "ui.router", "login", "home"])
+angular.module("myApp", ["ngMaterial","ngMdIcons", "angular-sortable-view", "ui.router", "login", "home"])
 
     .controller("appController", ["$scope", appController])
 

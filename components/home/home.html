@@ -37,7 +37,13 @@
                 </md-card-title>
 
                 <md-card-actions layout="row" layout-align="end center">
-                    <button  class="md-button md-primary md-raised" ng-click="delete(item.key, key )" >Delete</button>
+                    <ng-md-icon icon="visibility"  style="fill: #757575" size="18" ></ng-md-icon>
+                    <ng-md-icon icon="subject"     style="fill: #757575" size="18" ></ng-md-icon>
+                    <ng-md-icon icon="comment"     style="fill: #757575" size="18" ></ng-md-icon>
+                    <ng-md-icon icon="attach_file" style="fill: #757575" size="18" ></ng-md-icon>
+                    <ng-md-icon icon="check_box"   style="fill: #757575" size="18" ></ng-md-icon>
+                    <ng-md-icon icon="delete"      style="fill: #757575" size="18" ng-click="delete(item.key, key )" ></ng-md-icon>
+                    <!--<button  class="md-button md-primary md-raised"  >Delete</button>-->
                 </md-card-actions>
             </md-card>
 

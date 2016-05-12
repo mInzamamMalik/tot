@@ -23,7 +23,7 @@ function homeController($scope, $state, mainService) {
     //add a task to firebase "not to local array"
     $scope.addNewTask = function (newTask) {
         projectRef.child("Todo").push(newTask);
-        $scope.newTask = {};
+        $scope.newTask = "";
     };
     //add a task to firebase "not to local array"
     $scope.add = function (newTaskObject, state) {

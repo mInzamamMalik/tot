@@ -1,4 +1,75 @@
-path /projects/projectId1234/{userId}{
- read() { true }
-  write() { true }
+
+
+////=============================================================
+//type NameLengthGreaterThanThree extends String{
+//     validate() { this.length >= 3 }
+//}
+
+//type CurrentTimeStamp extends Number{
+//  validate() { this <= now }
+//}
+
+//type StatusType extends Number {
+//  validate() { this == 0 || this == 1 }        // 0 = unverified || 1 = verified
+//}
+
+////=============================================================
+//{"rules":{".read":"auth != null"}}
+
+
+
+type TaskComments {
+	$commentid : Boolean
 }
+
+type TaskLikes {
+	$userId :  Boolean
+}
+
+type Task{
+	title : String,
+	description : String || null,
+	createdBy : String,
+	comments : TaskComments || null,
+	likes : TaskLikes || null
+}
+
+path /project_id/tasks/{$taskid} is Task{
+
+	read() = isGroupMember(groupid) && auth!=null;
+}
+////////////this is task schema///////////////////////////////////////////////////
+
+
+//////////this is comment schema/////////////////////////////////////////////////////////
+type Comment{
+	body : String,
+	author : String
+}
+path /project_id/comments/{$taskid}/{$commentid} is Comment{
+
+}
+//////////this is comment schema/////////////////////////////////////////////////////////
+
+
+
+
+
+
+//type ContainTaskId{
+//	$taskId : Boolean
+//}
+
+
+//type taskState {
+
+//	todo : ContainTaskId,
+//	doing : ContainTaskId,
+//	review : ContainTaskId,
+//	done : ContainTaskId
+//}
+
+//path /project_id/taskState is taskState{
+
+
+//}

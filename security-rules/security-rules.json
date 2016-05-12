@@ -3,8 +3,8 @@
     "projects": {
       "projectId1234": {
         "$userId": {
-          ".read": "true",
-          ".write": "true"
+          ".read": "auth != true",
+          ".write": "auth != true"
         }
       }
     }
