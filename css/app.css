@@ -7,3 +7,42 @@
     -ms-user-select: none;
     user-select: none;
 }
+
+.section-background {
+    background-color: #f2f2f2;
+}
+
+.body-background {
+    background-color: #e8e8e8;
+}
+
+.color-label {
+    margin: auto 2px 0 2px;
+    height: 5px;
+}
+
+.label-green {
+    background-color: #62bd50;
+}
+
+.label-yellow {
+    background-color: #f2d602;
+}
+
+.label-orange {
+    background-color: #fba94a;
+}
+
+.label-red {
+    background-color: #e75a46;
+}
+
+.label-purple {
+    background-color: #c378e0;
+}
+
+
+.dim-icon{
+    fill: #a7a8ab;
+}
+

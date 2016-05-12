@@ -3,18 +3,18 @@
     <button class="md-button md-warn" ng-click="logout()">Logout</button>
 </div>
 
-<div>
-    <b>back end view</b>
-    <span ng-repeat="item in project"> <br> {{item | json}}  </span>
-</div>
+<!--<div>-->
+<!--<b>back end view</b>-->
+<!--<span ng-repeat="item in project"> <br> {{item | json}}  </span>-->
+<!--</div>-->
 
 
-
-
-<md-content sv-root class="md-padding" layout-xs="column" layout="row">
+<md-content sv-root class="md-padding body-background" layout-xs="column" layout="row">
 
     <div sv-part="value" ng-repeat="(key , value) in project" flex-xs flex-gt-xs="25" layout="column">
-        <md-card>
+
+
+        <md-card class="section-background">
 
             <md-toolbar class="md-theme-light">
                 <div class="md-toolbar-tools">
@@ -29,22 +29,83 @@
             </md-toolbar>
 
             <md-card ng-repeat="item in value" sv-element>
-                <md-card-title >
+                <md-card-title>
                     <!--<button class="md-button md-primary" sv-handle>move</button>-->
                     {{item.value.title}}<br/>
-                    {{item.value.detail}}<br/>
-                    {{item.value.other}}<br/>
                 </md-card-title>
 
-                <md-card-actions layout="row" layout-align="end center">
-                    <ng-md-icon icon="visibility"  style="fill: #757575" size="18" ></ng-md-icon>
-                    <ng-md-icon icon="subject"     style="fill: #757575" size="18" ></ng-md-icon>
-                    <ng-md-icon icon="comment"     style="fill: #757575" size="18" ></ng-md-icon>
-                    <ng-md-icon icon="attach_file" style="fill: #757575" size="18" ></ng-md-icon>
-                    <ng-md-icon icon="check_box"   style="fill: #757575" size="18" ></ng-md-icon>
-                    <ng-md-icon icon="delete"      style="fill: #757575" size="18" ng-click="delete(item.key, key )" ></ng-md-icon>
-                    <!--<button  class="md-button md-primary md-raised"  >Delete</button>-->
+                <md-card-actions layout="row" layout-align="start center">
+                    <div class="icon-container">
+                        <ng-md-icon icon="visibility" class="dim-icon" size="18"></ng-md-icon>
+
+                    </div>
+                    <div class="icon-container">
+                        <ng-md-icon icon="subject" class="dim-icon" size="18"></ng-md-icon>
+                    </div>
+                    <div class="icon-container">
+                        <ng-md-icon icon="comment" class="dim-icon" size="18"></ng-md-icon>
+                        <span class="md-caption">23</span>
+                    </div>
+                    <div class="icon-container">
+                        <ng-md-icon icon="attach_file" class="dim-icon" size="18"></ng-md-icon>
+                    </div>
+                    <div class="icon-container">
+                        <ng-md-icon icon="check_box" class="dim-icon" size="18"></ng-md-icon>
+                    </div>
+
+                    <!--<div class="flex"><ng-md-icon icon="delete"      class="dim-icon" size="18" ng-click="delete(item.key, key )" ></ng-md-icon></div>-->
                 </md-card-actions>
+
+                <div layout="row" >
+
+                    <div class="flex color-label label-green"></div>
+                    <div class="flex color-label label-yellow"></div>
+                    <div class="flex color-label label-orange"></div>
+                    <div class="flex color-label label-red"></div>
+                    <div class="flex color-label label-purple"></div>
+
+                </div>
+            </md-card>
+
+
+
+<md-card sv-element>
+                <md-card-title>
+                    <!--<button class="md-button md-primary" sv-handle>move</button>-->
+                    {{item.value.title}}title text<br/>
+                </md-card-title>
+
+                <md-card-actions layout="row" layout-align="start center">
+                    <div class="icon-container">
+                        <ng-md-icon icon="visibility" class="dim-icon" size="18"></ng-md-icon>
+
+                    </div>
+                    <div class="icon-container">
+                        <ng-md-icon icon="subject" class="dim-icon" size="18"></ng-md-icon>
+                    </div>
+                    <div class="icon-container">
+                        <ng-md-icon icon="comment" class="dim-icon" size="18"></ng-md-icon>
+                        <span ></span>
+                    </div>
+                    <div class="icon-container">
+                        <ng-md-icon icon="attach_file" class="dim-icon" size="18"></ng-md-icon>
+                    </div>
+                    <div class="icon-container">
+                        <ng-md-icon icon="check_box" class="dim-icon" size="18"></ng-md-icon>
+                    </div>
+
+                    <!--<div class="flex"><ng-md-icon icon="delete"      class="dim-icon" size="18" ng-click="delete(item.key, key )" ></ng-md-icon></div>-->
+                </md-card-actions>
+
+                <div layout="row" layout-align="end center">
+
+                    <div class="flex-20 color-label label-green"></div>
+                    <div class="flex-20 color-label label-yellow"></div>
+                    <div class="flex-20 color-label label-orange"></div>
+                    <div class="flex-20 color-label label-red"></div>
+                    <div class="flex-20 color-label label-purple"></div>
+
+                </div>
             </md-card>
 
             <!--////////no item////////////////////-->
