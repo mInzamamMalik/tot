@@ -16,8 +16,9 @@
 
         <md-card class="section-background">
 
-            <md-toolbar class="md-theme-light">
-                <div class="md-toolbar-tools" ng-class="{'label-green':key=='Todo','label-yellow':key=='Doing','label-orange':key=='Review','label-red':key=='Done',}">
+                <div class="md-toolbar-tools"
+                     ng-class="{'todo-section':key=='Todo','doing-section':key=='Doing','review-section':
+                     key=='Review','label-red':key=='Done',}" style="max-height: 50px">
                     <h2>
                         <span ng-bind="key"></span>
                     </h2>
@@ -26,57 +27,16 @@
                         <ng-md-icon icon="add_circle" style="fill: white " size="30"></ng-md-icon>
                     </md-button>
                 </div>
-            </md-toolbar>
 
             <md-card ng-repeat="item in value" sv-element>
 
-                <img src="img/a.jpg" alt="" class="unselectable">
+                <img src="img/aa.png" alt="" class="unselectable">
 
                 <md-card-title>
                     <!--<button class="md-button md-primary" sv-handle>move</button>-->
                     {{item.value.title}}<br/>
                 </md-card-title>
 
-                <md-card-actions layout="row" layout-align="start center">
-                    <div class="icon-container">
-                        <ng-md-icon icon="visibility" class="dim-icon" size="18"></ng-md-icon>
-
-                    </div>
-                    <div class="icon-container">
-                        <ng-md-icon icon="subject" class="dim-icon" size="18"></ng-md-icon>
-                    </div>
-                    <div class="icon-container">
-                        <ng-md-icon icon="comment" class="dim-icon" size="18"></ng-md-icon>
-                        <span class="md-caption">23</span>
-                    </div>
-                    <div class="icon-container">
-                        <ng-md-icon icon="attach_file" class="dim-icon" size="18"></ng-md-icon>
-                    </div>
-                    <div class="icon-container">
-                        <ng-md-icon icon="check_box" class="dim-icon" size="18"></ng-md-icon>
-                    </div>
-
-                    <!--<div class="flex"><ng-md-icon icon="delete"      class="dim-icon" size="18" ng-click="delete(item.key, key )" ></ng-md-icon></div>-->
-                </md-card-actions>
-
-                <div layout="row" >
-
-                    <div class="flex color-label label-green"></div>
-                    <div class="flex color-label label-yellow"></div>
-                    <div class="flex color-label label-orange"></div>
-                    <div class="flex color-label label-red"></div>
-                    <div class="flex color-label label-purple"></div>
-
-                </div>
-            </md-card>
-
-
-
-<md-card sv-element>
-                <md-card-title>
-                    <!--<button class="md-button md-primary" sv-handle>move</button>-->
-                    {{item.value.title}}title text<br/>
-                </md-card-title>
 
                 <md-card-actions layout="row" class="icon-sheet" layout-align="start center">
                     <div class="icon-container">
@@ -89,7 +49,7 @@
                     </div>
                     <div class="icon-container">
                         <ng-md-icon icon="comment" class="dim-icon" size="18"></ng-md-icon>
-                        <span ></span>
+                        <span></span>
                     </div>
                     <div class="icon-container">
                         <ng-md-icon icon="attach_file" class="dim-icon" size="18"></ng-md-icon>
@@ -101,17 +61,17 @@
                     <!--<div class="flex"><ng-md-icon icon="delete"      class="dim-icon" size="18" ng-click="delete(item.key, key )" ></ng-md-icon></div>-->
                 </md-card-actions>
 
-                <div layout="row" layout-align="end center">
 
-                    <div class="flex-20 color-label label-green"></div>
-                    <div class="flex-20 color-label label-yellow"></div>
-                    <div class="flex-20 color-label label-orange"></div>
-                    <div class="flex-20 color-label label-red"></div>
-                    <div class="flex-20 color-label label-purple"></div>
+                <div layout="row">
+
+                    <div class="flex color-label label-green"></div>
+                    <div class="flex color-label label-yellow"></div>
+                    <div class="flex color-label label-orange"></div>
+                    <div class="flex color-label label-red"></div>
+                    <div class="flex color-label label-purple"></div>
 
                 </div>
             </md-card>
-
 
             <!--////////no item////////////////////-->
             <md-card ng-show="!value.length">
