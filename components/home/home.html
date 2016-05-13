@@ -16,21 +16,21 @@
 
         <md-card class="section-background">
 
-                <div class="md-toolbar-tools"
-                     ng-class="{'todo-section':key=='Todo','doing-section':key=='Doing','review-section':
-                     key=='Review','label-red':key=='Done',}" style="max-height: 50px">
-                    <h2>
-                        <span ng-bind="key"></span>
-                    </h2>
-                    <span flex></span>
-                    <md-button ng-show="key=='Todo'" class="md-icon-button" aria-label="Favorite">
-                        <ng-md-icon icon="add_circle" style="fill: white " size="30"></ng-md-icon>
-                    </md-button>
-                </div>
+            <div class="md-toolbar-tools section-header"
+                 ng-class="{'todo-section':key=='Todo','doing-section':key=='Doing','review-section':
+                     key=='Review','label-red':key=='Done',}">
+                <h2>
+                    <span ng-bind="key"></span>
+                </h2>
+                <span flex></span>
+                <md-button ng-show="key=='Todo'" class="md-icon-button" aria-label="Favorite">
+                    <ng-md-icon icon="add_circle" style="fill: white " size="30"></ng-md-icon>
+                </md-button>
+            </div>
 
             <md-card ng-repeat="item in value" sv-element>
 
-                <img src="img/aa.png" alt="" class="unselectable">
+                <img src="img/aa.png" alt="task image" class="undragable">
 
                 <md-card-title>
                     <!--<button class="md-button md-primary" sv-handle>move</button>-->

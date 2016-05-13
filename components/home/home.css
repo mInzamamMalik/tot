@@ -61,4 +61,7 @@ background-color: #51c78e;
 .done-section{
 background-color: #e2705b;
 }
+.section-header{
+    max-height: 50px;
+}
 /*////////////////////////////////////////////////////////////////*/
