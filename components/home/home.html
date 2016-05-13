@@ -16,9 +16,9 @@
 
         <md-card class="section-background">
 
-            <md-toolbar class="md-theme-light">
                 <div class="md-toolbar-tools"
-                     ng-class="{'todo-section':key=='Todo','doing-section':key=='Doing','review-section':key=='Review','label-red':key=='Done',}">
+                     ng-class="{'todo-section':key=='Todo','doing-section':key=='Doing','review-section':
+                     key=='Review','label-red':key=='Done',}" style="max-height: 50px">
                     <h2>
                         <span ng-bind="key"></span>
                     </h2>
@@ -27,7 +27,6 @@
                         <ng-md-icon icon="add_circle" style="fill: white " size="30"></ng-md-icon>
                     </md-button>
                 </div>
-            </md-toolbar>
 
             <md-card ng-repeat="item in value" sv-element>
 
