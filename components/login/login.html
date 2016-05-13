@@ -1,5 +1,4 @@
-
-<form ng-submit="login(login)" ng-show="showLogin">
+<form ng-submit="login(login)" > <!--ng-hide="showLogin"-->
     <div layout-gt-sm="row">
 
         <md-input-container class="md-block" flex-gt-sm>
@@ -28,12 +27,15 @@
         </div>
     </div>
     <button flex="10" class="md-button md-primary md-raised" type="submit">Login</button>
-    <a ng-click="showLogin = false" class="md-primary">Dont Have an Account?</a>
+    <!--<a ng-click="showLogin = false" class="md-primary">Dont Have an Account?</a>-->
 
 </form>
 
-<form ng-submit="signup(signup)" ng-hide="showLogin">
-    <div layout-gt-sm="row">
+<br>
+<hr>
+<br>
+<form ng-submit="signup(signup)" ><!--ng-hide="showLogin"-->
+    <div layout-gt-sm="row" >
 
         <md-input-container class="md-block" flex-gt-sm>
             <label>Email</label>
@@ -61,11 +63,9 @@
         </div>
 
     </div>
-    <button flex="10" class="md-button md-primary md-raised" type="submit">SignUp</button>
-    <a ng-click="showLogin = true; message=''" class="md-primary">Already Signed Up?</a>
+    <button flex="10" class="md-button md-active md-raised" type="submit">SignUp</button>
+    <!--<a ng-click="showLogin = true; message=''" class="md-primary">Already Signed Up?</a>-->
 </form>
-
-
 
 
 {{message}}
