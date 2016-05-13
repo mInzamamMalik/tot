@@ -17,9 +17,8 @@
         <md-card class="section-background">
 
             <md-toolbar class="md-theme-light">
-                <div class="md-toolbar-tools" ng-class="{'label-green':key=='Todo','label-yellow':key=='Doing','label-orange':key=='Review','label-red':key=='Done',}">
+                <div class="md-toolbar-tools">
                     <h2>
-
                         <span ng-bind="key"></span>
                     </h2>
                     <span flex></span>
@@ -70,19 +69,20 @@
 
 
 
-                <md-card sv-element>
+<md-card sv-element>
                 <md-card-title>
                     <!--<button class="md-button md-primary" sv-handle>move</button>-->
                     {{item.value.title}}title text<br/>
                 </md-card-title>
 
-                <md-card-actions layout="row" layout-align="start center">
+                <md-card-actions layout="row" class="icon-sheet" layout-align="start center">
                     <div class="icon-container">
                         <ng-md-icon icon="visibility" class="dim-icon" size="18"></ng-md-icon>
 
                     </div>
                     <div class="icon-container">
-                        <ng-md-icon icon="subject" class="dim-icon" size="18"></ng-md-icon>
+                        <ng-md-icon class="dim-icon" icon="subject" size="18"></ng-md-icon>
+                        <span class="icon-badge">20</span>
                     </div>
                     <div class="icon-container">
                         <ng-md-icon icon="comment" class="dim-icon" size="18"></ng-md-icon>
@@ -108,6 +108,10 @@
 
                 </div>
             </md-card>
+
+
+
+
 
             <!--////////no item////////////////////-->
             <md-card ng-show="!value.length">
