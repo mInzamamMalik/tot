@@ -20,7 +20,7 @@
                  ng-class="{'todo-section':key=='Todo','doing-section':key=='Doing','review-section':
                      key=='Review','done-section':key=='Done',}">
                 <h2>
-                    <span ng-bind="key"></span>
+                    <span ng-bind="key"></span>{{value.length}}
                 </h2>
                 <span flex></span>
                 <md-button ng-show="key=='Todo'" class="md-icon-button" aria-label="Favorite">
