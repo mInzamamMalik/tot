@@ -27,8 +27,7 @@
                     <ng-md-icon icon="add_circle" style="fill: white " size="30"></ng-md-icon>
                 </md-button>
             </div>
-<div ng-mouseup="showAdvanced($event)">
-            <md-card ng-repeat="item in value" sv-element>
+            <md-card ng-repeat="item in value" sv-element ng-mouseup="showAdvanced($event)">
 
                 <img class="md-card-image undragable" src="img/aa.png" alt="task image">
                 <md-card-content>
@@ -69,6 +68,11 @@
                         <span style="vertical-align:middle ;  " class="icon-badge">2/7</span>
                     </span>
                     <!--<div class="flex"><ng-md-icon icon="delete"      class="dim-icon" size="18" ng-click="delete(item.key, key )" ></ng-md-icon></div>-->
+
+                    <div class="gapIcon">
+                        <ng-md-icon icon="delete" class="dim-icon" size="18"
+                                    ng-click="delete(item.key, key )"></ng-md-icon>
+                    </div>
                 </md-card-actions>
 
 
@@ -82,7 +86,6 @@
 
                 </div>
             </md-card>
-</div>
             <!--////////no item////////////////////-->
             <md-card ng-show="!value.length">
                 <md-card-header>
