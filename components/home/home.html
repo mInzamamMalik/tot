@@ -27,7 +27,7 @@
                     <ng-md-icon icon="add_circle" style="fill: white " size="30"></ng-md-icon>
                 </md-button>
             </div>
-
+<div ng-mouseup="showAdvanced($event)">
             <md-card ng-repeat="item in value" sv-element>
 
                 <img class="md-card-image undragable" src="img/aa.png" alt="task image">
@@ -82,7 +82,7 @@
 
                 </div>
             </md-card>
-
+</div>
             <!--////////no item////////////////////-->
             <md-card ng-show="!value.length">
                 <md-card-header>
