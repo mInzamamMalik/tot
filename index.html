@@ -33,7 +33,17 @@
 
 
 <body ng-app="myApp" ng-controller="appController" class="disable-text-selection">
-
+<md-toolbar id="colnavchange">
+    <div class="md-toolbar-tools">
+        <h2>
+            <ng-md-icon icon="check_circle" style="fill:rgba(245, 253, 242, 0.88)" size="20"></ng-md-icon>
+            <span>PANACLOUD</span>
+        </h2>
+        <span flex></span>
+        <div flex class="md-headline">{{userName.password.email}}</div>
+        <button class="md-button md-warn" ng-click="logout()">Logout</button>
+    </div>
+</md-toolbar>
 <ui-view></ui-view>
 
 

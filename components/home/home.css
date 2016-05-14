@@ -1,4 +1,7 @@
-
+.leftnavcolor
+{
+    background-color: #4563f2;
+}
 .section-background {
     background-color: #f2f2f2;
 }
@@ -76,3 +79,19 @@ background-color: #e2705b;
     max-height: 50px;
 }
 /*////////////////////////////////////////////////////////////////*/
+.iconmid
+{
+  padding: 0 auto;
+  padding-left: 20px;
+
+}
+#colnavchange
+{
+    background-color: #42aec6;
+
+}
+.opi{
+    color: rgba(255, 255, 255, 0.41);
+
+
+}
