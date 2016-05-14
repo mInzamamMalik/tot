@@ -16,48 +16,58 @@
 
         <md-card class="section-background">
 
-                <div class="md-toolbar-tools"
-                     ng-class="{'todo-section':key=='Todo','doing-section':key=='Doing','review-section':
-                     key=='Review','label-red':key=='Done',}" style="max-height: 50px">
-                    <h2>
-                        <span ng-bind="key"></span>
-                    </h2>
-                    <span flex></span>
-                    <md-button ng-show="key=='Todo'" class="md-icon-button" aria-label="Favorite">
-                        <ng-md-icon icon="add_circle" style="fill: white " size="30"></ng-md-icon>
-                    </md-button>
-                </div>
-
+            <div class="md-toolbar-tools section-header"
+                 ng-class="{'todo-section':key=='Todo','doing-section':key=='Doing','review-section':
+                     key=='Review','done-section':key=='Done',}">
+                <h2>
+                    <span ng-bind="key"></span>{{value.length}}
+                </h2>
+                <span flex></span>
+                <md-button ng-show="key=='Todo'" class="md-icon-button" aria-label="Favorite">
+                    <ng-md-icon icon="add_circle" style="fill: white " size="30"></ng-md-icon>
+                </md-button>
+            </div>
+<div ng-mouseup="showAdvanced($event)">
             <md-card ng-repeat="item in value" sv-element>
 
-                <img src="img/aa.png" alt="" class="unselectable">
-
-                <md-card-title>
+                <img class="md-card-image undragable" src="img/aa.png" alt="task image">
+                <md-card-content>
+                    <span>
                     <!--<button class="md-button md-primary" sv-handle>move</button>-->
-                    {{item.value.title}}<br/>
-                </md-card-title>
-
+                    {{item.value.title}}
+                    </span>
+                </md-card-content>
 
                 <md-card-actions layout="row" class="icon-sheet" layout-align="start center">
-                    <div class="icon-container">
-                        <ng-md-icon icon="visibility" class="dim-icon" size="18"></ng-md-icon>
 
+                    <div class="gapIcon">
+                        <ng-md-icon icon="visibility" class="dim-icon" size="18"></ng-md-icon>
                     </div>
-                    <div class="icon-container">
+
+                    <div class="gapIcon">
                         <ng-md-icon class="dim-icon" icon="subject" size="18"></ng-md-icon>
-                        <span class="icon-badge">20</span>
                     </div>
-                    <div class="icon-container">
+
+                    <div class="gapIcon">
                         <ng-md-icon icon="comment" class="dim-icon" size="18"></ng-md-icon>
-                        <span></span>
                     </div>
-                    <div class="icon-container">
+                    <span>
+                        <span style="vertical-align:middle ;  " class="icon-badge">20</span>
+                    </span>
+
+                    <div class="gapIcon">
                         <ng-md-icon icon="attach_file" class="dim-icon" size="18"></ng-md-icon>
                     </div>
-                    <div class="icon-container">
+                    <span>
+                        <span style="vertical-align:middle ;  " class="icon-badge">6</span>
+                    </span>
+
+                    <div class="gapIcon">
                         <ng-md-icon icon="check_box" class="dim-icon" size="18"></ng-md-icon>
                     </div>
-
+                    <span>
+                        <span style="vertical-align:middle ;  " class="icon-badge">2/7</span>
+                    </span>
                     <!--<div class="flex"><ng-md-icon icon="delete"      class="dim-icon" size="18" ng-click="delete(item.key, key )" ></ng-md-icon></div>-->
                 </md-card-actions>
 
@@ -72,7 +82,7 @@
 
                 </div>
             </md-card>
-
+</div>
             <!--////////no item////////////////////-->
             <md-card ng-show="!value.length">
                 <md-card-header>
@@ -82,6 +92,9 @@
                 </md-card-header>
             </md-card>
             <!--////////no item////////////////////-->
+
+            <md-card ng-show="!value.length" sv-element></md-card>
+
 
             <form ng-if="key=='Todo'" ng-submit="addNewTask(newTask,'Todo')">
                 <md-input-container class="md-block" flex-gt-sm>

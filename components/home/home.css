@@ -47,18 +47,32 @@
     font-size: 10px;
     margin: auto auto 8px auto ;
 }
+.gapIcon {
+    padding-left: 2px;
+}
 /*////////////////////////////////////////////////////////////////*/
 
 .todo-section{
 background-color: #cf54be;
+    max-height: 50px;
+    color: ghostwhite;
 }
 .doing-section{
 background-color: #56a2d4;
+    max-height: 50px;
+    color: ghostwhite;
 }
 .review-section{
 background-color: #51c78e;
+    max-height: 50px;
+    color: ghostwhite;
 }
 .done-section{
 background-color: #e2705b;
+    max-height: 50px;
+    color: ghostwhite;
+}
+.section-header{
+    max-height: 50px;
 }
 /*////////////////////////////////////////////////////////////////*/
