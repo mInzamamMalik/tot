@@ -1,7 +1,21 @@
 <div class="md-toolbar-tools" style="height: 8%;background-color: #FFFFFF; border :1px solid #E8E8E8">
     <span flex="initial">
-        <span class="greyColorHeader">Project Name</span>
-        <ng-md-icon icon="expand_more" class="greyColorHeader"></ng-md-icon>
+
+        <md-input-container>
+        <label>Project Name</label>
+        <md-select ng-model="ctrl.userState">
+          <md-option>
+            User Experiance Design
+          </md-option>
+          <md-option>
+            Andriod Apps Development
+          </md-option>
+          <md-option>
+            Web Apps Development
+          </md-option>
+        </md-select>
+      </md-input-container>
+
     </span>
     <span flex="auto"></span>
 
