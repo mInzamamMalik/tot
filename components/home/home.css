@@ -1,7 +1,5 @@
-.greyColorHeader{color: #B7B9BB !important}
-
-.leftnavcolor{
-    background-color: #4563f2;
+.leftnavcolor {
+    background-color: #0475fd;
 }
 .section-background {
     background-color: #f2f2f2;
@@ -37,62 +35,98 @@
 }
 
 /*////////////////////////////////////////////////////////////////*/
-.dim-icon{
+.icon-dim {
     fill: #a7a8ab;
 }
-.icon-sheet{
+
+.icon-sheet {
 
 }
+
 .icon-container {
     margin-right: 5px;
     padding: 3px;
 }
-.icon-badge{
+
+.icon-badge {
     font-size: 10px;
-    margin: auto auto 8px auto ;
+    margin: auto auto 8px auto;
 }
+
 .gapIcon {
     padding-left: 2px;
 }
+
 /*////////////////////////////////////////////////////////////////*/
 
-.todo-section{
-background-color: #cf54be;
+.todo-section {
+    background-color: #cf54be;
     max-height: 50px;
     color: ghostwhite;
 }
-.doing-section{
-background-color: #56a2d4;
-    max-height: 50px;
-    color: ghostwhite;
-}
-.review-section{
-background-color: #51c78e;
-    max-height: 50px;
-    color: ghostwhite;
-}
-.done-section{
-background-color: #e2705b;
-    max-height: 50px;
-    color: ghostwhite;
-}
-.section-header{
-    max-height: 50px;
-}
-/*////////////////////////////////////////////////////////////////*/
-.iconmid
-{
-  padding: 0 auto;
-  padding-left: 20px;
 
+.doing-section {
+    background-color: #56a2d4;
+    max-height: 50px;
+    color: ghostwhite;
 }
-#colnavchange
-{
+
+.review-section {
+    background-color: #51c78e;
+    max-height: 50px;
+    color: ghostwhite;
+}
+
+.done-section {
+    background-color: #e2705b;
+    max-height: 50px;
+    color: ghostwhite;
+}
+
+.section-header {
+    max-height: 50px;
+}
+
+/*////////////////////////////////////////////////////////////////*/
+.iconmid {
+    padding: 0 auto;
+    padding-left: 20px;
+}
+
+#colnavchange {
     background-color: #42aec6;
-
 }
-.opi{
+
+.opi {
     color: rgba(255, 255, 255, 0.41);
+}
 
+/*/////////////////////////////////////////////////////////////////////*/
 
+.sub-header {
+    height: 60px;
+    background-color: #FFFFFF;
+    border: 1px solid #E8E8E8
+}
+
+.search-bar {
+    background-color: #f2f2f2;
+    height: 45px;
+}
+
+.search-icon {
+    fill: #6e6f71;
+    width: 8%;
+    margin-left: 3%;
+}
+
+.search-input {
+    width: 80%;
+    border-style: none;
+    height: 90%;
+    background-color: #f2f2f2;
+}
+
+.search-input:focus {
+    outline: none;
 }

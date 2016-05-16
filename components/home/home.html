@@ -1,33 +1,34 @@
-<div class="md-toolbar-tools" style="height: 8%;background-color: #FFFFFF; border :1px solid #E8E8E8">
-    <span flex="initial">
+<div class="md-toolbar-tools sub-header" layout="row">
+    <span class="flex-initial">
 
         <md-input-container>
-        <label>Project Name</label>
-        <md-select ng-model="ctrl.userState">
-          <md-option>
-            User Experiance Design
-          </md-option>
-          <md-option>
-            Andriod Apps Development
-          </md-option>
-          <md-option>
-            Web Apps Development
-          </md-option>
-        </md-select>
-      </md-input-container>
+            <label>Project Name</label>
+            <md-select ng-model="ctrl.userState">
+                <md-option>
+                    User Experiance Design
+                </md-option>
+                <md-option>
+                    Andriod Apps Development
+                </md-option>
+                <md-option>
+                    Web Apps Development
+                </md-option>
+            </md-select>
+        </md-input-container>
 
     </span>
-    <span flex="auto"></span>
+    <span class="flex"></span>
 
-    <span flex="nogrow" class="greyColorHeader">
+    <span class="flex-50 search-bar">
+        <ng-md-icon icon="search" class="search-icon"></ng-md-icon>
 
-        <ng-md-icon icon="search" class="greyColorHeader"></ng-md-icon>
-
-        <input type="search" placeholder="Search" style="background-color: #B7B9BB !important;"/>
-
-        <ng-md-icon icon=" photo_filter" class="greyColorHeader"></ng-md-icon>
-        <ng-md-icon icon="format_indent_decrease" class="greyColorHeader"></ng-md-icon>
+        <input class="search-input" type="search" placeholder="Search"/>
     </span>
+
+    <div>
+        <!--<ng-md-icon icon=" photo_filter" class="greyColorHeader"></ng-md-icon>-->
+        <!--<ng-md-icon icon="format_indent_decrease" class="greyColorHeader"></ng-md-icon>-->
+    </div>
 </div>
 
 <div layout="row">
@@ -38,7 +39,7 @@
 <!--<span ng-repeat="item in project"> <br> {{item | json}}  </span>-->
 <!--</div>-->
 
-<md-content sv-root class="md-padding body-background" layout-xs="column" layout="row">
+<md-content sv-root class="body-background" layout-xs="column" layout="row">
     <div flex="20" class="leftnavcolor">
 
         <ng-md-icon icon="dehaze" style="fill: white" size="40" class="iconmid"></ng-md-icon>
@@ -54,14 +55,11 @@
         <ng-md-icon icon="description" style="fill: white" size="40" class="iconmid"></ng-md-icon>
 
 
-
     </div>
 
 
     <div sv-part="value" ng-repeat="(key , value) in project" layout="column" flex="70">
-        <br>
-        <br>
-        <br>
+
         <md-card class="section-background">
 
             <div class="md-toolbar-tools section-header"
@@ -69,7 +67,7 @@
                      key=='Review','done-section':key=='Done',}">
                 <h2>
                     <span ng-bind="key"></span>
-            <span class="opi">{{value.length}}</span>
+                    <span class="opi">{{value.length}}</span>
                 </h2>
                 <span flex></span>
                 <md-button ng-show="key=='Todo'" class="md-icon-button" aria-label="Favorite">
@@ -89,7 +87,7 @@
                 <md-card-actions layout="row" class="icon-sheet" layout-align="start center">
 
                     <div class="gapIcon">
-                        <ng-md-icon icon="visibility" class="dim-icon" size="18"></ng-md-icon>
+                        <ng-md-icon icon="visibility" class="icon-dim" size="18"></ng-md-icon>
                     </div>
 
                     <div class="gapIcon">
@@ -97,21 +95,21 @@
                     </div>
 
                     <div class="gapIcon">
-                        <ng-md-icon icon="comment" class="dim-icon" size="18"></ng-md-icon>
+                        <ng-md-icon icon="comment" class="icon-dim" size="18"></ng-md-icon>
                     </div>
                     <span>
                         <span style="vertical-align:middle ;  " class="icon-badge">20</span>
                     </span>
 
                     <div class="gapIcon">
-                        <ng-md-icon icon="attach_file" class="dim-icon" size="18"></ng-md-icon>
+                        <ng-md-icon icon="attach_file" class="icon-dim" size="18"></ng-md-icon>
                     </div>
                     <span>
                         <span style="vertical-align:middle ;  " class="icon-badge">6</span>
                     </span>
 
                     <div class="gapIcon">
-                        <ng-md-icon icon="check_box" class="dim-icon" size="18"></ng-md-icon>
+                        <ng-md-icon icon="check_box" class="icon-dim" size="18"></ng-md-icon>
                     </div>
                     <span>
                         <span style="vertical-align:middle ;  " class="icon-badge">2/7</span>
@@ -119,7 +117,7 @@
                     <!--<div class="flex"><ng-md-icon icon="delete"      class="dim-icon" size="18" ng-click="delete(item.key, key )" ></ng-md-icon></div>-->
 
                     <div class="gapIcon">
-                        <ng-md-icon icon="delete" class="dim-icon" size="18"
+                        <ng-md-icon icon="delete" class="icon-dim" size="18"
                                     ng-click="delete(item.key, key )"></ng-md-icon>
                     </div>
                 </md-card-actions>
