@@ -1,9 +1,19 @@
 
 var app = angular.module("home", []);
 
-app.controller("homeController", ["$scope", "$state", "mainService", homeController]);
+app.controller("homeController", ["$scope", "$state", "mainService","$mdDialog","$mdMedia", homeController]);
 
-function homeController($scope, $state, mainService) {
+function homeController($scope, $state, mainService,$mdDialog, $mdMedia) {
+    
+      $scope.showAdvanced = function(ev) {
+    var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
+    $mdDialog.show({
+      templateUrl: 'components/home/dialog.html',
+      targetEvent: ev,
+      clickOutsideToClose:true,
+      fullscreen: useFullScreen
+    })   
+  };
 
     var ref = new Firebase("https://teamofteam.firebaseio.com");
     $scope.userName = ref.getAuth();
