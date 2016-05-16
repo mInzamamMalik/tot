@@ -130,3 +130,6 @@
 .search-input:focus {
     outline: none;
 }
+.greyColorHeader{
+    color: #cbccce;
+}
