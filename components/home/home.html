@@ -1,7 +1,21 @@
 <div class="md-toolbar-tools" style="height: 8%;background-color: #FFFFFF; border :1px solid #E8E8E8">
     <span flex="initial">
-        <span class="greyColorHeader">Project Name</span>
-        <ng-md-icon icon="expand_more" class="greyColorHeader"></ng-md-icon>
+
+        <md-input-container>
+        <label>Project Name</label>
+        <md-select ng-model="ctrl.userState">
+          <md-option>
+            User Experiance Design
+          </md-option>
+          <md-option>
+            Andriod Apps Development
+          </md-option>
+          <md-option>
+            Web Apps Development
+          </md-option>
+        </md-select>
+      </md-input-container>
+
     </span>
     <span flex="auto"></span>
 
@@ -34,17 +48,17 @@
 
         <md-card class="section-background">
 
-                <div class="md-toolbar-tools"
-                     ng-class="{'todo-section':key=='Todo','doing-section':key=='Doing','review-section':
+            <div class="md-toolbar-tools"
+                 ng-class="{'todo-section':key=='Todo','doing-section':key=='Doing','review-section':
                      key=='Review','label-red':key=='Done',}" style="max-height: 50px">
-                    <h2>
-                        <span ng-bind="key"></span>
-                    </h2>
-                    <span flex></span>
-                    <md-button ng-show="key=='Todo'" class="md-icon-button" aria-label="Favorite">
-                        <ng-md-icon icon="add_circle" style="fill: white " size="30"></ng-md-icon>
-                    </md-button>
-                </div>
+                <h2>
+                    <span ng-bind="key"></span>
+                </h2>
+                <span flex></span>
+                <md-button ng-show="key=='Todo'" class="md-icon-button" aria-label="Favorite">
+                    <ng-md-icon icon="add_circle" style="fill: white " size="30"></ng-md-icon>
+                </md-button>
+            </div>
 
             <md-card ng-repeat="item in value" sv-element>
 
