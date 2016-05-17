@@ -75,10 +75,10 @@
                     <ng-md-icon icon="add_circle" style="fill: white " size="30"></ng-md-icon>
                 </md-button>
             </div>
-            <md-card ng-repeat="item in value" sv-element ng-mouseup="showAdvanced($event)">
+            <md-card ng-repeat="item in value" sv-element >
 
-                <img class="md-card-image undragable" src="img/aa.png" alt="task image">
-                <md-card-content>
+                <img class="md-card-image undragable" src="img/aa.png" alt="task image" ng-mouseup="showAdvanced($event)">
+                <md-card-content ng-mouseup="showAdvanced($event)">
                     <span>
                     <!--<button class="md-button md-primary" sv-handle>move</button>-->
                     {{item.value.title}}
@@ -124,7 +124,7 @@
                 </md-card-actions>
 
 
-                <div layout="row">
+                <div layout="row" ng-mouseup="showAdvanced($event)">
 
                     <div class="flex color-label label-green"></div>
                     <div class="flex color-label label-yellow"></div>
