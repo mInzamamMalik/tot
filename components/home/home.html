@@ -1,18 +1,60 @@
 <div layout="row">
-    <div flex class="md-headline">{{userName.password.email}}</div>
-    <button class="md-button md-warn" ng-click="logout()">Logout</button>
-</div>
+    <div style="height: 800px;background-color: #178eeb">
+        <div class="sidenav" layout="column" layout-align="start center">
 
-<!--<div>-->
-<!--<b>back end view</b>-->
-<!--<span ng-repeat="item in project"> <br> {{item | json}}  </span>-->
-<!--</div>-->
+            <ng-md-icon icon="dehaze" style="fill: white" size="36"></ng-md-icon>
+
+            <ng-md-icon icon="navigation" style="fill: white" size="36" class="iconmid"></ng-md-icon>
 
 
-<md-content sv-root class="md-padding body-background" layout-xs="column" layout="row">
+            <ng-md-icon icon="insert_comment" style="fill: white" size="36" class="iconmid"></ng-md-icon>
 
-    <div sv-part="value" ng-repeat="(key , value) in project" flex-xs flex-gt-xs="25" layout="column">
+            <ng-md-icon icon="description" style="fill: white" size="36" class="iconmid"></ng-md-icon>
+        </div>
+    </div>
 
+    <div style="height:10px;width: 100%">
+
+        <div class="md-toolbar-tools sub-header" layout="row" layout-align=" start">
+            <span class="flex-initial">
+
+        <md-input-container>
+            <label>Project Name</label>
+            <md-select ng-model="ctrl.userState">
+                <md-option>
+                    User Experiance Design
+                </md-option>
+                <md-option>
+                    Andriod Apps Development
+                </md-option>
+                <md-option>
+                    Web Apps Development
+                </md-option>
+            </md-select>
+        </md-input-container>
+
+    </span>
+    <span class="flex"></span>
+
+    <span class="flex-45 search-bar" style="margin-top:8px ;height: 40px">
+        <ng-md-icon icon="search" class="search-icon"></ng-md-icon>
+
+                <input class="search-input" type="search" placeholder="Search" />
+            </span>
+            <span style="width: 3%"></span>
+            <div>
+                <ng-md-icon icon=" photo_filter" class="greyColorHeader" style="margin-top: 16px"></ng-md-icon>
+                <ng-md-icon style="width: 70px; margin-top: 16px;margin-left: 30px" icon="format_indent_decrease"
+                            class="greyColorHeader"></ng-md-icon>
+            </div>
+
+
+        </div>
+        <md-content layout="row" layout-align="start" style="height: auto;width: auto !important;" sv-root
+                    class="body-background" layout-xs="column" layout="row">
+
+
+    <div sv-part="value" ng-repeat="(key , value) in project" layout="column" flex="70">
 
         <md-card class="section-background">
 
@@ -20,18 +62,18 @@
                  ng-class="{'todo-section':key=='Todo','doing-section':key=='Doing','review-section':
                      key=='Review','done-section':key=='Done',}">
                 <h2>
-                    <span ng-bind="key"></span>{{value.length}}
+                    <span ng-bind="key"></span>
+                    <span class="opi">{{value.length}}</span>
                 </h2>
                 <span flex></span>
                 <md-button ng-show="key=='Todo'" class="md-icon-button" aria-label="Favorite">
                     <ng-md-icon icon="add_circle" style="fill: white " size="30"></ng-md-icon>
                 </md-button>
             </div>
-<div ng-mouseup="showAdvanced($event)">
-            <md-card ng-repeat="item in value" sv-element>
+            <md-card ng-repeat="item in value" sv-element >
 
-                <img class="md-card-image undragable" src="img/aa.png" alt="task image">
-                <md-card-content>
+                <img class="md-card-image undragable" src="img/aa.png" alt="task image" ng-mouseup="showAdvanced($event)">
+                <md-card-content ng-mouseup="showAdvanced($event)">
                     <span>
                     <!--<button class="md-button md-primary" sv-handle>move</button>-->
                     {{item.value.title}}
@@ -41,7 +83,7 @@
                 <md-card-actions layout="row" class="icon-sheet" layout-align="start center">
 
                     <div class="gapIcon">
-                        <ng-md-icon icon="visibility" class="dim-icon" size="18"></ng-md-icon>
+                        <ng-md-icon icon="visibility" class="icon-dim" size="18"></ng-md-icon>
                     </div>
 
                     <div class="gapIcon">
@@ -49,30 +91,35 @@
                     </div>
 
                     <div class="gapIcon">
-                        <ng-md-icon icon="comment" class="dim-icon" size="18"></ng-md-icon>
+                        <ng-md-icon icon="comment" class="icon-dim" size="18"></ng-md-icon>
                     </div>
                     <span>
                         <span style="vertical-align:middle ;  " class="icon-badge">20</span>
                     </span>
 
                     <div class="gapIcon">
-                        <ng-md-icon icon="attach_file" class="dim-icon" size="18"></ng-md-icon>
+                        <ng-md-icon icon="attach_file" class="icon-dim" size="18"></ng-md-icon>
                     </div>
                     <span>
                         <span style="vertical-align:middle ;  " class="icon-badge">6</span>
                     </span>
 
                     <div class="gapIcon">
-                        <ng-md-icon icon="check_box" class="dim-icon" size="18"></ng-md-icon>
+                        <ng-md-icon icon="check_box" class="icon-dim" size="18"></ng-md-icon>
                     </div>
                     <span>
                         <span style="vertical-align:middle ;  " class="icon-badge">2/7</span>
                     </span>
                     <!--<div class="flex"><ng-md-icon icon="delete"      class="dim-icon" size="18" ng-click="delete(item.key, key )" ></ng-md-icon></div>-->
+
+                    <div class="gapIcon">
+                        <ng-md-icon icon="delete" class="icon-dim" size="18"
+                                    ng-click="delete(item.key, key )"></ng-md-icon>
+                    </div>
                 </md-card-actions>
 
 
-                <div layout="row">
+                <div layout="row" ng-mouseup="showAdvanced($event)">
 
                     <div class="flex color-label label-green"></div>
                     <div class="flex color-label label-yellow"></div>
@@ -82,7 +129,6 @@
 
                 </div>
             </md-card>
-</div>
             <!--////////no item////////////////////-->
             <md-card ng-show="!value.length">
                 <md-card-header>
@@ -116,5 +162,8 @@
         </md-card>
 
 
+            </div>
+        </md-content>
+
     </div>
-</md-content>
+</div>
