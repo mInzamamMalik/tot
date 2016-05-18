@@ -1,5 +1,22 @@
-<div class="md-toolbar-tools sub-header" layout="row">
-    <span class="flex-initial">
+<div layout="row">
+    <div style="height: 800px;background-color: #178eeb">
+        <div class="sidenav" layout="column" layout-align="start center">
+
+            <ng-md-icon icon="dehaze" style="fill: white" size="36"></ng-md-icon>
+
+            <ng-md-icon icon="navigation" style="fill: white" size="36" class="iconmid"></ng-md-icon>
+
+
+            <ng-md-icon icon="insert_comment" style="fill: white" size="36" class="iconmid"></ng-md-icon>
+
+            <ng-md-icon icon="description" style="fill: white" size="36" class="iconmid"></ng-md-icon>
+        </div>
+    </div>
+
+    <div style="height:10px;width: 100%">
+
+        <div class="md-toolbar-tools sub-header" layout="row" layout-align=" start">
+            <span class="flex-initial">
 
         <md-input-container>
             <label>Project Name</label>
@@ -19,44 +36,22 @@
     </span>
     <span class="flex"></span>
 
-    <span class="flex-45 search-bar">
+    <span class="flex-45 search-bar" style="margin-top:8px ;height: 40px">
         <ng-md-icon icon="search" class="search-icon"></ng-md-icon>
 
-        <input class="search-input" type="search" placeholder="Search"/>
-    </span>
-    <span style="width: 1%"></span>
-    <div>
-        <ng-md-icon icon=" photo_filter" class="greyColorHeader"></ng-md-icon>
-
-        <ng-md-icon style="padding-left: 70px" icon="format_indent_decrease" class="greyColorHeader"></ng-md-icon>
-    </div>
-</div>
-
-<div layout="row">
-</div>
-
-<!--<div>-->
-<!--<b>back end view</b>-->
-<!--<span ng-repeat="item in project"> <br> {{item | json}}  </span>-->
-<!--</div>-->
-
-<md-content sv-root class="body-background" layout-xs="column" layout="row">
-    <div flex="20" class="leftnavcolor">
-
-        <ng-md-icon icon="dehaze" style="fill: white" size="40" class="iconmid"></ng-md-icon>
-        <hr>
-
-        <br>
-        <ng-md-icon icon="navigation" style="fill: white" size="40" class="iconmid"></ng-md-icon>
-        <br>
-        <br>
-        <ng-md-icon icon="insert_comment" style="fill: white" size="40" class="iconmid"></ng-md-icon>
-        <br>
-        <br>
-        <ng-md-icon icon="description" style="fill: white" size="40" class="iconmid"></ng-md-icon>
+                <input class="search-input" type="search" placeholder="Search" />
+            </span>
+            <span style="width: 3%"></span>
+            <div>
+                <ng-md-icon icon=" photo_filter" class="greyColorHeader" style="margin-top: 16px"></ng-md-icon>
+                <ng-md-icon style="width: 70px; margin-top: 16px;margin-left: 30px" icon="format_indent_decrease"
+                            class="greyColorHeader"></ng-md-icon>
+            </div>
 
 
-    </div>
+        </div>
+        <md-content layout="row" layout-align="start" style="height: auto;width: auto !important;" sv-root
+                    class="body-background" layout-xs="column" layout="row">
 
 
     <div sv-part="value" ng-repeat="(key , value) in project" layout="column" flex="70">
@@ -167,5 +162,8 @@
         </md-card>
 
 
+            </div>
+        </md-content>
+
     </div>
-</md-content>
+</div>
