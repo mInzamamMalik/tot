@@ -42,6 +42,8 @@ function homeController($scope, $state, mainService,$mdDialog, $mdMedia, $timeou
     })   
   };
 
+
+
     var ref = new Firebase("https://teamofteam.firebaseio.com");
     $scope.userName = ref.getAuth();
     var projectRef = ref.child("projects").child("projectId1234");
