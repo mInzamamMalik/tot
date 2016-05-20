@@ -46,7 +46,9 @@
             <div>
                 <ng-md-icon icon=" photo_filter" class="greyColorHeader" style="margin-top: 16px"></ng-md-icon>
                 <ng-md-icon style="width: 70px; margin-top: 16px;margin-left: 30px" icon="format_indent_decrease"
-                            class="greyColorHeader"></ng-md-icon>
+                            class="greyColorHeader" ng-click="toggleRight()"
+                            ng-hide="isOpenRight()">
+                </ng-md-icon>
             </div>
 
 
@@ -165,5 +167,26 @@
             </md-card>
 
 
+            </div>
+          <!-- Side NAV---start -->
+
+            <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+                <md-toolbar class="md-theme-light">
+                    <h1 class="md-toolbar-tools">Sidenav Right</h1>
+                </md-toolbar>
+                <md-content  layout-padding>
+                    <form>
+                        <md-input-container>
+                            <label for="testInput">Test input</label>
+                            <input type="text" id="testInput"
+                                   ng-model="data" md-autofocus>
+                        </md-input-container>
+                    </form>
+                    <md-button ng-click="close()" class="md-primary">
+                        Close Sidenav Right
+                    </md-button>
+                </md-content>
+            </md-sidenav>
+          <!-----------------end--------------------- -->
         </md-content>
     </div>
