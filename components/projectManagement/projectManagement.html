@@ -1,22 +1,17 @@
-<div layout="row">
-    <div style="height: 800px;background-color: #178eeb">
-        <div class="sidenav" layout="column" layout-align="start center">
+<div layout="row" layout-fill>
+    <!--this is left nav bar-->
+    <div class="leftnav" layout="column" layout-align="start center">
 
-            <ng-md-icon icon="dehaze" style="fill: white" size="36"></ng-md-icon>
-
-            <ng-md-icon icon="navigation" style="fill: white" size="36" class="iconmid"></ng-md-icon>
-
-
-            <ng-md-icon icon="insert_comment" style="fill: white" size="36" class="iconmid"></ng-md-icon>
-
-            <ng-md-icon icon="description" style="fill: white" size="36" class="iconmid"></ng-md-icon>
-        </div>
+        <ng-md-icon icon="dehaze" style="fill: white" size="36"></ng-md-icon>
+        <ng-md-icon icon="navigation" style="fill: white" size="36"></ng-md-icon>
+        <ng-md-icon icon="insert_comment" style="fill: white" size="36"></ng-md-icon>
+        <ng-md-icon icon="description" style="fill: white" size="36"></ng-md-icon>
     </div>
 
-    <md-content style="width: 100%">
-
-        <div class="md-toolbar-tools sub-header" layout="row" layout-align=" start">
-            <span class="flex-initial">
+    <!--this is content area-->
+    <md-content layout-fill>
+        <!--this is sub-header-->
+        <div class="md-toolbar-tools sub-header" layout="row" layout-align="center center">
 
             <md-input-container>
                 <label>Project Name</label>
@@ -33,82 +28,78 @@
                 </md-select>
             </md-input-container>
 
-            </span>
             <span class="flex"></span>
 
-            <span class="flex-45 search-bar" style="margin-top:8px ;height: 40px">
+            <span class="flex-45 search-bar" hide-sm hide-xs>
                 <ng-md-icon icon="search" class="search-icon"></ng-md-icon>
-
                 <input class="search-input" type="search" placeholder="Search"/>
             </span>
+
+            <span style="width: 2%"></span>
+
+            <ng-md-icon icon="photo_filter" size="30" class="icon"></ng-md-icon>
+
             <span style="width: 3%"></span>
 
-            <div>
-                <ng-md-icon icon=" photo_filter" class="greyColorHeader" style="margin-top: 16px"></ng-md-icon>
-                <ng-md-icon style="width: 70px; margin-top: 16px;margin-left: 30px" icon="format_indent_decrease"
-                            class="greyColorHeader" ng-click="toggleRight()">
-                </ng-md-icon>
-            </div>
-
-
+            <ng-md-icon icon="format_indent_decrease" size="30" class="icon" ng-click="toggleRight()"></ng-md-icon>
         </div>
-        <md-content layout="row" layout-align="start"  sv-root
-                    class="body-background" layout-xs="column" layout="row">
 
+        <!--this is main area-->
+        <md-content sv-root class="body" layout-xs="column" layout="row" layout-align="start">
 
-            <div sv-part="value" ng-repeat="(key , value) in project" layout="column" flex="70">
+            <div sv-part="value" ng-repeat="(key , value) in project" layout="column" flex="33">
 
-                <md-card class="section-background">
+                <md-card class="section">
 
                     <div class="md-toolbar-tools section-header"
                          ng-class="{'todo-section':key=='Todo','doing-section':key=='Doing','review-section':
                             key=='Review','done-section':key=='Done',}">
                         <h2>
                             <span ng-bind="key"></span>
-                            <span class="opi">{{value.length}}</span>
+                            <span class="counter" ng-bind="value.length"></span>
                         </h2>
                         <span flex></span>
-                        <md-button ng-show="key=='Todo'" class="md-icon-button" aria-label="Favorite">
-                            <ng-md-icon icon="add_circle" style="fill: white " size="30"></ng-md-icon>
+                        <md-button ng-show="key=='Todo'" class="md-icon-button" aria-label="add">
+                            <ng-md-icon icon="add_circle"></ng-md-icon>
                         </md-button>
                     </div>
+
                     <md-card ng-repeat="item in value" sv-element>
 
                         <img class="md-card-image undragable" src="img/aa.png" alt="task image"
                              ng-mouseup="showAdvanced($event)">
                         <md-card-content ng-mouseup="showAdvanced($event)">
-                            <span>
+                            <span ng-bind="item.value.title">
                             <!--<button class="md-button md-primary" sv-handle>move</button>-->
-                            {{item.value.title}}
                             </span>
                         </md-card-content>
 
                         <md-card-actions layout="row" class="icon-sheet" layout-align="start center">
 
                             <div class="gapIcon">
-                                <ng-md-icon icon="visibility" class="icon-dim" size="18"></ng-md-icon>
+                                <ng-md-icon icon="visibility" class="icon" size="18"></ng-md-icon>
                             </div>
 
                             <div class="gapIcon">
-                                <ng-md-icon class="dim-icon" icon="subject" size="18"></ng-md-icon>
+                                <ng-md-icon class="icon" icon="subject" size="18"></ng-md-icon>
                             </div>
 
                             <div class="gapIcon">
-                                <ng-md-icon icon="comment" class="icon-dim" size="18"></ng-md-icon>
+                                <ng-md-icon icon="comment" class="icon" size="18"></ng-md-icon>
                             </div>
                             <span>
-                                <span style="vertical-align:middle ;  " class="icon-badge">20</span>
+                                <span style="vertical-align:middle" class="icon-badge">20</span>
                             </span>
 
                             <div class="gapIcon">
-                                <ng-md-icon icon="attach_file" class="icon-dim" size="18"></ng-md-icon>
+                                <ng-md-icon icon="attach_file" class="icon" size="18"></ng-md-icon>
                             </div>
                             <span>
                                 <span style="vertical-align:middle ;  " class="icon-badge">6</span>
                             </span>
 
                             <div class="gapIcon">
-                                <ng-md-icon icon="check_box" class="icon-dim" size="18"></ng-md-icon>
+                                <ng-md-icon icon="check_box" class="icon" size="18"></ng-md-icon>
                             </div>
                             <span>
                                 <span style="vertical-align:middle ;  " class="icon-badge">2/7</span>
@@ -116,8 +107,7 @@
                             <!--<div class="flex"><ng-md-icon icon="delete"      class="dim-icon" size="18" ng-click="delete(item.key, key )" ></ng-md-icon></div>-->
 
                             <div class="gapIcon">
-                                <ng-md-icon icon="delete" class="icon-dim" size="18"
-                                            ng-click="delete(item.key, key )"></ng-md-icon>
+                                <ng-md-icon icon="delete" class="icon" size="18" ng-click="delete(item.key, key )"></ng-md-icon>
                             </div>
                         </md-card-actions>
 
@@ -175,18 +165,21 @@
                         <md-tab label="one">
                             <md-content class="md-padding">
                                 <h1 class="md-display-2">Projects</h1>
+
                                 <p>Lorem ipsum dolor sit amet, c</p>
                             </md-content>
                         </md-tab>
                         <md-tab label="two">
                             <md-content class="md-padding">
                                 <h1 class="md-display-2">My Tasks</h1>
+
                                 <p>cus sapien sit amet, tempus sapien.</p>
                             </md-content>
                         </md-tab>
                         <md-tab label="three">
                             <md-content class="md-padding">
                                 <h1 class="md-display-2">Closed Tasks</h1>
+
                                 <p>Integer turpis erat,</p>
                             </md-content>
                         </md-tab>
