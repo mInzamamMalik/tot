@@ -1,10 +1,37 @@
 
 var app = angular.module("home", []);
 
-app.controller("homeController", ["$scope", "$state", "mainService","$mdDialog","$mdMedia", homeController]);
+app.controller("homeController", ["$scope", "$state", "mainService","$mdDialog","$mdMedia" ,"$timeout", "$mdSidenav", "$log", homeController]);
 
-function homeController($scope, $state, mainService,$mdDialog, $mdMedia) {
-    
+function homeController($scope, $state, mainService,$mdDialog, $mdMedia, $timeout, $mdSidenav, $log) {
+    ///////////////login for side nav////////start///////
+
+   // $scope.toggleLeft = buildDelayedToggler('left');
+    $scope.toggleRight = buildToggler('right');
+    $scope.isOpenRight = function(){
+        return $mdSidenav('right').isOpen();
+    };
+
+    function buildToggler(navID) {
+        return function() {
+            $mdSidenav(navID)
+                .toggle()
+                .then(function () {
+                    $log.debug("toggle " + navID + " is done");
+                });
+        }
+    }
+
+    $scope.close = function () {
+        $mdSidenav('right').close()
+            .then(function () {
+                $log.debug("close RIGHT is done");
+            });
+    };
+    ////////////////////////end///////////////////////
+
+
+
       $scope.showAdvanced = function(ev) {
     var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
     $mdDialog.show({
@@ -14,6 +41,8 @@ function homeController($scope, $state, mainService,$mdDialog, $mdMedia) {
       fullscreen: useFullScreen
     })   
   };
+
+
 
     var ref = new Firebase("https://teamofteam.firebaseio.com");
     $scope.userName = ref.getAuth();
