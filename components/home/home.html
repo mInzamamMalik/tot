@@ -63,7 +63,7 @@
 
                     <div class="md-toolbar-tools section-header"
                          ng-class="{'todo-section':key=='Todo','doing-section':key=='Doing','review-section':
-                     key=='Review','done-section':key=='Done',}">
+                            key=='Review','done-section':key=='Done',}">
                         <h2>
                             <span ng-bind="key"></span>
                             <span class="opi">{{value.length}}</span>
@@ -78,10 +78,10 @@
                         <img class="md-card-image undragable" src="img/aa.png" alt="task image"
                              ng-mouseup="showAdvanced($event)">
                         <md-card-content ng-mouseup="showAdvanced($event)">
-                    <span>
-                    <!--<button class="md-button md-primary" sv-handle>move</button>-->
-                    {{item.value.title}}
-                    </span>
+                            <span>
+                            <!--<button class="md-button md-primary" sv-handle>move</button>-->
+                            {{item.value.title}}
+                            </span>
                         </md-card-content>
 
                         <md-card-actions layout="row" class="icon-sheet" layout-align="start center">
@@ -97,23 +97,23 @@
                             <div class="gapIcon">
                                 <ng-md-icon icon="comment" class="icon-dim" size="18"></ng-md-icon>
                             </div>
-                    <span>
-                        <span style="vertical-align:middle ;  " class="icon-badge">20</span>
-                    </span>
+                            <span>
+                                <span style="vertical-align:middle ;  " class="icon-badge">20</span>
+                            </span>
 
                             <div class="gapIcon">
                                 <ng-md-icon icon="attach_file" class="icon-dim" size="18"></ng-md-icon>
                             </div>
-                    <span>
-                        <span style="vertical-align:middle ;  " class="icon-badge">6</span>
-                    </span>
+                            <span>
+                                <span style="vertical-align:middle ;  " class="icon-badge">6</span>
+                            </span>
 
                             <div class="gapIcon">
                                 <ng-md-icon icon="check_box" class="icon-dim" size="18"></ng-md-icon>
                             </div>
-                    <span>
-                        <span style="vertical-align:middle ;  " class="icon-badge">2/7</span>
-                    </span>
+                            <span>
+                                <span style="vertical-align:middle ;  " class="icon-badge">2/7</span>
+                            </span>
                             <!--<div class="flex"><ng-md-icon icon="delete"      class="dim-icon" size="18" ng-click="delete(item.key, key )" ></ng-md-icon></div>-->
 
                             <div class="gapIcon">
@@ -133,61 +133,60 @@
 
                         </div>
                     </md-card>
-            </div>
-            <!--////////no item////////////////////-->
-            <md-card ng-show="!value.length">
-                <md-card-header>
-                    <md-card-header-text>
-                        <span class="md-subhead">No Item</span>
-                    </md-card-header-text>
-                </md-card-header>
-            </md-card>
-            <!--////////no item////////////////////-->
 
-            <md-card ng-show="!value.length" sv-element></md-card>
+                    <!--////////no item////////////////////-->
+                    <md-card ng-show="!value.length">
+                        <md-card-header>
+                            <md-card-header-text>
+                                <span class="md-subhead">No Item</span>
+                            </md-card-header-text>
+                        </md-card-header>
+                    </md-card>
+                    <!--////////no item////////////////////-->
 
-
-            <form ng-if="key=='Todo'" ng-submit="addNewTask(newTask,'Todo')">
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Title</label>
-                    <input md-maxlength="50" required ng-model="newTask.title"/>
-                </md-input-container>
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Detail</label>
-                    <input md-maxlength="150" required ng-model="newTask.detail"/>
-                </md-input-container>
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>other</label>
-                    <input md-maxlength="150" required ng-model="newTask.other"/>
-                </md-input-container>
-                <button class="md-button md-primary">subbmit</button>
-
-            </form>
-
-            </md-card>
+                    <md-card ng-show="!value.length" sv-element></md-card>
 
 
-
-          <!-- Side NAV---start -->
-
-            <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
-                <md-toolbar class="md-theme-light">
-                    <h1 class="md-toolbar-tools">Sidenav Right</h1>
-                </md-toolbar>
-                <md-content  layout-padding>
-                    <form>
-                        <md-input-container>
-                            <label for="testInput">Test input</label>
-                            <input type="text" id="testInput"
-                                   ng-model="data" md-autofocus>
+                    <form ng-if="key=='Todo'" ng-submit="addNewTask(newTask,'Todo')">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Title</label>
+                            <input md-maxlength="50" required ng-model="newTask.title"/>
                         </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Detail</label>
+                            <input md-maxlength="150" required ng-model="newTask.detail"/>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>other</label>
+                            <input md-maxlength="150" required ng-model="newTask.other"/>
+                        </md-input-container>
+                        <button class="md-button md-primary">subbmit</button>
+
                     </form>
-                    <md-button ng-click="close()" class="md-primary">
-                        Close Sidenav Right
-                    </md-button>
-                </md-content>
-            </md-sidenav>
-          <!-----------------end--------------------- -->
+                </md-card>
+
+
+                <!-- Side NAV---start -->
+
+                <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+                    <md-toolbar class="md-theme-light">
+                        <h1 class="md-toolbar-tools">Sidenav Right</h1>
+                    </md-toolbar>
+                    <md-content layout-padding>
+                        <form>
+                            <md-input-container>
+                                <label for="testInput">Test input</label>
+                                <input type="text" id="testInput"
+                                       ng-model="data" md-autofocus>
+                            </md-input-container>
+                        </form>
+                        <md-button ng-click="close()" class="md-primary">
+                            Close Sidenav Right
+                        </md-button>
+                    </md-content>
+                </md-sidenav>
+                <!-----------------end--------------------- -->
+            </div>
         </md-content>
     </div>
 </div>
