@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div style="height:10px;width: 100%">
+    <md-content style="width: 100%">
 
         <div class="md-toolbar-tools sub-header" layout="row" layout-align=" start">
             <span class="flex-initial">
@@ -46,14 +46,13 @@
             <div>
                 <ng-md-icon icon=" photo_filter" class="greyColorHeader" style="margin-top: 16px"></ng-md-icon>
                 <ng-md-icon style="width: 70px; margin-top: 16px;margin-left: 30px" icon="format_indent_decrease"
-                            class="greyColorHeader" ng-click="toggleRight()"
-                            ng-hide="isOpenRight()">
+                            class="greyColorHeader" ng-click="toggleRight()">
                 </ng-md-icon>
             </div>
 
 
         </div>
-        <md-content layout="row" layout-align="start" style="height: auto;width: auto !important;" sv-root
+        <md-content layout="row" layout-align="start"  sv-root
                     class="body-background" layout-xs="column" layout="row">
 
 
@@ -164,29 +163,40 @@
 
                     </form>
                 </md-card>
-
-
-                <!-- Side NAV---start -->
-
-                <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
-                    <md-toolbar class="md-theme-light">
-                        <h1 class="md-toolbar-tools">Sidenav Right</h1>
-                    </md-toolbar>
-                    <md-content layout-padding>
-                        <form>
-                            <md-input-container>
-                                <label for="testInput">Test input</label>
-                                <input type="text" id="testInput"
-                                       ng-model="data" md-autofocus>
-                            </md-input-container>
-                        </form>
-                        <md-button ng-click="close()" class="md-primary">
-                            Close Sidenav Right
-                        </md-button>
-                    </md-content>
-                </md-sidenav>
-                <!-----------------end--------------------- -->
             </div>
         </md-content>
-    </div>
+
+        <!-- Side NAV---start -->
+
+        <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+            <md-content layout-fill ng-cloak>
+                <md-content>
+                    <md-tabs md-dynamic-height md-border-bottom style="background-color: #31b7ef">
+                        <md-tab label="one">
+                            <md-content class="md-padding">
+                                <h1 class="md-display-2">Projects</h1>
+                                <p>Lorem ipsum dolor sit amet, c</p>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="two">
+                            <md-content class="md-padding">
+                                <h1 class="md-display-2">My Tasks</h1>
+                                <p>cus sapien sit amet, tempus sapien.</p>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="three">
+                            <md-content class="md-padding">
+                                <h1 class="md-display-2">Closed Tasks</h1>
+                                <p>Integer turpis erat,</p>
+                            </md-content>
+                        </md-tab>
+                    </md-tabs>
+                </md-content>
+                <md-button ng-click="close()" class="md-primary">
+                    Close Sidenav Right
+                </md-button>
+            </md-content>
+        </md-sidenav>
+        <!-----------------end--------------------- -->
+    </md-content>
 </div>
