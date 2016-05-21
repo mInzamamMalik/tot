@@ -1,0 +1,115 @@
+<md-dialog aria-label="Mango (Fruit)" ng-cloak class="flex-100" layout-fill>
+
+    <md-subheader>
+        <div layout="row">
+        <ng-md-icon icon="close" flex="20" ></ng-md-icon>
+
+        <div flex="10">Move Task to <b>Todo</b></div>
+            <ng-md-icon icon="keyboard_arrow_down"></ng-md-icon>
+            <div style="font-size: 39px;margin-left: 14px">|</div>
+
+
+            <div flex="10"> Mark as closed</div>
+        </div>
+
+
+    </md-subheader>
+    <form>
+
+        <div layout="row">
+            <div style="background-color: #fafafa; ; z-index:0" class="flex">
+                <div class="md-dialog-content">
+                    <md-input-container class="md-block">
+                        <label>Name</label>
+                        <input required name="name"/>
+                        <div ng-messages="data.name.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
+                    <br/>
+                    <md-input-container class="md-block">
+                        <label>Description</label>
+                        <input/>
+                        <div ng-messages="data.dec.$error">
+                        </div>
+                    </md-input-container>
+
+                </div>
+                <div class="md-dialog-content">
+                    <md-checkbox>
+                        SubTask 1
+                    </md-checkbox>
+                    <br/>
+                    <md-checkbox>
+                        SubTask 2
+                    </md-checkbox>
+                    <br/>
+                    <md-checkbox>
+                        SubTask 3
+                    </md-checkbox>
+                    <br/>
+                    <md-checkbox>
+                        SubTask 4
+                    </md-checkbox>
+                    <br/>
+                    <md-button md-no-ink class="md-primary">Add SubTask...</md-button>
+
+                </div>
+
+            </div>
+
+
+            <md-whiteframe style="background-color: #ffffff; z-index:1" class="flex md-whiteframe-8dp">
+                <div style="background-color: #fafafa; ; z-index:0 ; height: 500px" class="flex">
+                    <div class="md-dialog-content"></div>
+                    <!--<div class="md-dialog-content">-->
+
+                    <md-list-item class="md-2-line">
+                        <img ng-src="https://cdn3.iconfinder.com/data/icons/inside/PNG/256x256/icontexto-inside-facebook.png" class="md-avatar"/>
+                        <div class="md-list-item-text">
+                            <h3>heading</h3>
+
+                        </div>
+                    </md-list-item>
+
+
+
+
+                        <md-input-container class="md-block">
+                            <label>Add a comment</label>
+                            <input >
+                        </md-input-container>
+                    </div>
+
+
+
+
+                <!--</div>-->
+            </md-whiteframe>
+
+
+            <div style="background-color: #fafafa; ; z-index:0" class="flex ">
+                <md-datepicker ng-model="user.submissionDate" md-placeholder="Set Due Date"
+                               style="background-color: #fafafa;">
+                </md-datepicker>
+                <br/><br/><br/>
+                <div class="center">
+                    Assign to Users<br/>
+                    <md-button class="md-raised md-primary">+ add</md-button>
+                    <hr/>
+                    <br/><br/><br/>
+
+<div layout="row">
+                    <h2 class="flex">Attachment</h2>
+                    <md-button md-no-ink class="md-primary flex-22">add</md-button>
+
+
+</div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </form>
+</md-dialog>
