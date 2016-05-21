@@ -53,6 +53,8 @@ function homeController($scope, $state, mainService,$mdDialog, $mdMedia, $timeou
         Review: [],
         Done: []
     };
+    
+    $scope.pract=['hi','hiii'];
 
     mainLogic("Todo");
     mainLogic("Doing");
