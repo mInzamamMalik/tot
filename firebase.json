@@ -1,8 +1,10 @@
 {
-  "database": {
-    "rules": "security-rules/database.rules.json"
-  },
-  "hosting": {
-    "public": "/"
-  }
+  "firebase": "teamofteam",
+//  "public": "/", // if you want to deploy only rules comment this line
+  "rules": "security-rules/security-rules.json",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
 }
