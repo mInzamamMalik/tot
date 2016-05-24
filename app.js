@@ -1,35 +1,41 @@
-angular.module("myApp", ["ngMaterial","ngMdIcons", "angular-sortable-view", "ui.router", "login", "home"])
+(function () {
+    "use strict";
 
-    .controller("appController", ["$scope", appController])
+    angular.module("myApp", ["ngMaterial", "ngMdIcons", "angular-sortable-view", "ui.router", "login", "app.projectManagement"])
 
-    .factory('$exceptionHandler', function() {
-        return function(exception, cause) {
-            exception.message += ' (caused by "' + cause + '")';
-            //console.log(cause);
-            //throw exception;
-        };
-    })
+        .controller("appController", ["$scope", appController])
 
-    .config(function ($urlRouterProvider, $stateProvider) {
+        .factory('$exceptionHandler', function () {
+            return function (exception, cause) {
+                exception.message += ' (caused by "' + cause + '")';
+                //console.log(cause);
+                throw exception;
+            };
+        })
 
+        .config(function ($urlRouterProvider, $stateProvider) {
 
-        $stateProvider.state("login", {
-            url: "/login",
-            templateUrl: "components/login/login.html",
-            controller: "loginController"
+            $stateProvider.state("login", {
+                url: "/login",
+                templateUrl: "components/login/login.html",
+                controller: "loginController"
+            });
+            $stateProvider.state("home", {
+                url: "/home",
+                templateUrl: "components/projectManagement/projectManagement.html",
+                controller: "ProjectManagementController"
+            });
+            $stateProvider.state("home.mainContent", {
+                url: "/home/mainContent",
+                templateUrl: "components/projectManagement/projectManagement.mainContent.html"
+                //controller: "ProjectManagementController.main"
+            });
+            $urlRouterProvider.otherwise("/home");
+
         });
-        $stateProvider.state("home", {
-            url: "/home",
-            templateUrl: "components/home/home.html",
-            controller: "homeController"
-        });
-        $urlRouterProvider.otherwise("/home");
 
-    });
+    function appController($scope) {
 
-function appController($scope) {
+    }
 
-
-}
-
-
+})()
