@@ -25,6 +25,11 @@
                 templateUrl: "components/projectManagement/projectManagement.html",
                 controller: "ProjectManagementController"
             });
+            $stateProvider.state("home.mainContent", {
+                url: "/home/mainContent",
+                templateUrl: "components/projectManagement/projectManagement.mainContent.html"
+                //controller: "ProjectManagementController.main"
+            });
             $urlRouterProvider.otherwise("/home");
 
         });
