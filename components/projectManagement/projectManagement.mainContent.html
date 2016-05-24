@@ -1,0 +1,184 @@
+<md-content layout-fill>
+    <!--this is sub-header-->
+    <div class="md-toolbar-tools sub-header" layout="row" layout-align="center center">
+
+        <md-input-container>
+            <label>Project Name</label>
+            <md-select ng-model="ctrl.userState">
+                <md-option>
+                    User Experiance Design
+                </md-option>
+                <md-option>
+                    Andriod Apps Development
+                </md-option>
+                <md-option>
+                    Web Apps Development
+                </md-option>
+            </md-select>
+        </md-input-container>
+
+        <span class="flex"></span>
+
+            <span class="flex-45 search-bar" hide-sm hide-xs>
+                <ng-md-icon icon="search" class="search-icon"></ng-md-icon>
+                <input class="search-input" type="search" placeholder="Search"/>
+            </span>
+
+        <span style="width: 2%"></span>
+
+        <ng-md-icon icon="photo_filter" size="30" class="icon"></ng-md-icon>
+
+        <span style="width: 3%"></span>
+
+        <ng-md-icon icon="format_indent_decrease" size="30" class="icon" ng-click="toggleRight()"></ng-md-icon>
+    </div>
+
+    <!--this is main area-->
+    <md-content sv-root class="body" layout-xs="column" layout="row" layout-align="start">
+
+        <div sv-part="value" ng-repeat="(key , value) in project" layout="column" flex="33">
+
+            <md-card class="section">
+
+                <div class="md-toolbar-tools section-header"
+                     ng-class="{'todo-section':key=='Todo','doing-section':key=='Doing','review-section':
+                            key=='Review','done-section':key=='Done',}">
+                    <h2>
+                        <span ng-bind="key"></span>
+                        <span class="counter" ng-bind="value.length"></span>
+                    </h2>
+                    <span flex></span>
+                    <md-button ng-show="key=='Todo'" class="md-icon-button" aria-label="add">
+                        <ng-md-icon icon="add_circle"></ng-md-icon>
+                    </md-button>
+                </div>
+
+                <md-card ng-repeat="item in value" sv-element>
+
+                    <img class="md-card-image undragable" src="img/aa.png" alt="task image"
+                         ng-mouseup="showAdvanced($event)">
+                    <md-card-content ng-mouseup="showAdvanced($event)">
+                            <span ng-bind="item.value.title">
+                            <!--<button class="md-button md-primary" sv-handle>move</button>-->
+                            </span>
+                    </md-card-content>
+
+                    <md-card-actions layout="row" class="icon-sheet" layout-align="start center">
+
+                        <div class="gapIcon">
+                            <ng-md-icon icon="visibility" class="icon" size="18"></ng-md-icon>
+                        </div>
+
+                        <div class="gapIcon">
+                            <ng-md-icon class="icon" icon="subject" size="18"></ng-md-icon>
+                        </div>
+
+                        <div class="gapIcon">
+                            <ng-md-icon icon="comment" class="icon" size="18"></ng-md-icon>
+                        </div>
+                            <span>
+                                <span style="vertical-align:middle" class="icon-badge">20</span>
+                            </span>
+
+                        <div class="gapIcon">
+                            <ng-md-icon icon="attach_file" class="icon" size="18"></ng-md-icon>
+                        </div>
+                            <span>
+                                <span style="vertical-align:middle ;  " class="icon-badge">6</span>
+                            </span>
+
+                        <div class="gapIcon">
+                            <ng-md-icon icon="check_box" class="icon" size="18"></ng-md-icon>
+                        </div>
+                            <span>
+                                <span style="vertical-align:middle ;  " class="icon-badge">2/7</span>
+                            </span>
+                        <!--<div class="flex"><ng-md-icon icon="delete"      class="dim-icon" size="18" ng-click="delete(item.key, key )" ></ng-md-icon></div>-->
+
+                        <div class="gapIcon">
+                            <ng-md-icon icon="delete" class="icon" size="18"
+                                        ng-click="delete(item.key, key )"></ng-md-icon>
+                        </div>
+                    </md-card-actions>
+
+
+                    <div layout="row" ng-mouseup="showAdvanced($event)">
+
+                        <div class="flex color-label label-green"></div>
+                        <div class="flex color-label label-yellow"></div>
+                        <div class="flex color-label label-orange"></div>
+                        <div class="flex color-label label-red"></div>
+                        <div class="flex color-label label-purple"></div>
+
+                    </div>
+                </md-card>
+
+                <!--////////no item////////////////////-->
+                <md-card ng-show="!value.length">
+                    <md-card-header>
+                        <md-card-header-text>
+                            <span class="md-subhead">No Item</span>
+                        </md-card-header-text>
+                    </md-card-header>
+                </md-card>
+                <!--////////no item////////////////////-->
+
+                <md-card ng-show="!value.length" sv-element></md-card>
+
+
+                <form ng-if="key=='Todo'" ng-submit="addNewTask(newTask,'Todo')">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Title</label>
+                        <input md-maxlength="50" required ng-model="newTask.title"/>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Detail</label>
+                        <input md-maxlength="150" required ng-model="newTask.detail"/>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>other</label>
+                        <input md-maxlength="150" required ng-model="newTask.other"/>
+                    </md-input-container>
+                    <button class="md-button md-primary">subbmit</button>
+
+                </form>
+            </md-card>
+        </div>
+    </md-content>
+
+    <!-- Side NAV---start -->
+
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+        <md-content layout-fill ng-cloak>
+            <md-content>
+                <md-tabs md-dynamic-height md-border-bottom style="background-color: #31b7ef">
+                    <md-tab label="one">
+                        <md-content class="md-padding">
+                            <h1 class="md-display-2">Projects</h1>
+
+                            <p>Lorem ipsum dolor sit amet, c</p>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="two">
+                        <md-content class="md-padding">
+                            <h1 class="md-display-2">My Tasks</h1>
+
+                            <p>cus sapien sit amet, tempus sapien.</p>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="three">
+                        <md-content class="md-padding">
+                            <h1 class="md-display-2">Closed Tasks</h1>
+
+                            <p>Integer turpis erat,</p>
+                        </md-content>
+                    </md-tab>
+                </md-tabs>
+            </md-content>
+            <md-button ng-click="close()" class="md-primary">
+                Close Sidenav Right
+            </md-button>
+        </md-content>
+    </md-sidenav>
+    <!-----------------end--------------------- -->
+</md-content>
